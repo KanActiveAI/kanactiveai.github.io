@@ -1,77 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>KanActive AI</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
-    /* Reset and basic styles */
+    :root {
+      --teal: #008080;
+      --navy: #00303f;
+      --turquoise: #30d5c8;
+      --offwhite: #f0f0f0;
+      --dark-bg: linear-gradient(135deg, #001f29, #002c3c, #004050);
+    }
+
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
+
     body {
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #fff;
+      font-family: 'Inter', sans-serif;
+      background: var(--dark-bg);
+      color: var(--offwhite);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
       text-align: center;
-      padding: 20px;
+      padding: 2rem;
     }
+
     header {
-      margin-bottom: 50px;
+      margin-bottom: 2rem;
     }
+
+    header img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
     h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--turquoise);
     }
+
     p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
+      font-size: 1.1rem;
+      margin: 1.2rem auto 2rem;
       max-width: 600px;
-      line-height: 1.5;
+      line-height: 1.6;
+      color: #cce0e3;
     }
+
     .btn {
       display: inline-block;
-      padding: 15px 30px;
+      margin: 0.5rem;
+      padding: 0.8rem 1.8rem;
       font-size: 1rem;
-      border: 2px solid #fff;
+      border: 2px solid var(--turquoise);
       border-radius: 30px;
+      background: transparent;
+      color: var(--turquoise);
       text-decoration: none;
-      color: #fff;
-      transition: background 0.3s, color 0.3s;
-      margin: 10px;
+      transition: all 0.3s ease;
     }
+
     .btn:hover {
-      background: #fff;
-      color: #000;
+      background: var(--turquoise);
+      color: #002c3c;
     }
+
     footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.8rem;
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: #cccccc;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
+    <img src="assets/newlogo.png" alt="KanActive AI Logo" />
     <h1>KanActive AI</h1>
   </header>
+
   <section>
     <p>
-      At KanActive AI, we are forging a new path in innovation. Our breakthrough approach is reshaping the boundaries of what’s possible.
-      Stay tuned for more.
+      We’re forging a new path in innovation. KanActive AI is redefining data protection at the source — where decisions are made.
     </p>
     <a href="#" class="btn">Discover More</a>
-    <!-- New button to collect emails for updates via Google Form -->
     <a href="https://forms.gle/v7dNrE4uvePD1nWKA" target="_blank" class="btn">Get Updates</a>
   </section>
+
   <footer>
     <p>&copy; 2025 KanActive AI. All rights reserved.</p>
   </footer>
