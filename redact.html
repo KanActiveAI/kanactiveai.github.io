@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Free AI Prompt Redaction Tool | KanActive AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --teal: #008080;
+      --navy: #00303f;
+      --turquoise: #30d5c8;
+      --offwhite: #f0f0f0;
+      --dark-bg: linear-gradient(135deg, #001f29, #002c3c, #004050);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark-bg);
+      color: var(--offwhite);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    header img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--turquoise);
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin: 1.2rem auto 2rem;
+      max-width: 600px;
+      line-height: 1.6;
+      color: #cce0e3;
+    }
+
+    .tool-container {
+      width: 100%;
+      max-width: 700px;
+      background: #002c3c;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-top: 2rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    textarea {
+      width: 100%;
+      height: 200px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    .options {
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+
+    .options label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.8rem 1.8rem;
+      font-size: 1rem;
+      border: 2px solid var(--turquoise);
+      border-radius: 30px;
+      background: transparent;
+      color: var(--turquoise);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--turquoise);
+      color: #002c3c;
+    }
+
+    #output {
+      margin-top: 1.5rem;
+      white-space: pre-wrap;
+      background: #003b4f;
+      padding: 1rem;
+      border-radius: 8px;
+      color: #eaffff;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: #cccccc;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      p { font-size: 1rem; }
+      .btn { width: 100%; max-width: 300px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="assets/newlogo.png" alt="KanActive AI Logo" />
+    <h1>Free AI Prompt Redaction Tool</h1>
+    <p>Remove sensitive data like credit card numbers or custom keywords from your AI prompts before you hit send.</p>
+  </header>
+
+  <div class="tool-container">
+    <textarea id="userInput" placeholder="Paste your AI prompt or text here..."></textarea>
+
+    <div class="options">
+      <label><input type="checkbox" id="redactPCI" checked /> Redact PCI data (e.g., credit card numbers)</label>
+      <label><input type="checkbox" id="redactCustom" /> Redact custom words (e.g., project names)</label>
+      <input type="text" id="customWords" placeholder="Enter words, comma-separated" style="width:100%;margin-top:0.5rem;padding:0.5rem;border-radius:6px;border:none;">
+    </div>
+
+    <button class="btn" onclick="redactText()">Redact</button>
+    <button class="btn" onclick="clearText()">Clear</button>
+
+    <div id="output"></div>
+  </div>
+
+  <footer>
+    <div style="margin-bottom: 1rem;">
+        <a href="index.html" class="btn">Homepage</a>
+        <a href="https://instagram.com/kanactiveai" target="_blank" class="btn">Instagram</a>
+        <a href="https://www.threads.net/@kanactiveai" target="_blank" class="btn">Threads</a>
+    </div>
+    <p>&copy; 2025 KanActive AI. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function redactText() {
+      let text = document.getElementById('userInput').value;
+      const redactPCI = document.getElementById('redactPCI').checked;
+      const redactCustom = document.getElementById('redactCustom').checked;
+      const customWords = document.getElementById('customWords').value
+        .split(',')
+        .map(word => word.trim())
+        .filter(Boolean);
+
+      if (redactPCI) {
+        // Regex for simple credit card number formats (13 to 19 digits, spaces or dashes optional)
+        text = text.replace(/\b(?:\d[ -]*?){13,19}\b/g, '[REDACTED PCI]');
+      }
+
+      if (redactCustom && customWords.length > 0) {
+        customWords.forEach(word => {
+          const regex = new RegExp(word, 'gi');
+          text = text.replace(regex, '[REDACTED]');
+        });
+      }
+
+      document.getElementById('output').textContent = text || '[Nothing to display]';
+    }
+
+    function clearText() {
+      document.getElementById('userInput').value = '';
+      document.getElementById('output').textContent = '';
+      document.getElementById('customWords').value = '';
+    }
+  </script>
+</body>
+</html>
