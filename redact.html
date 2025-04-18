@@ -139,6 +139,13 @@
       <label><input type="checkbox" id="redactPCI" checked /> Redact PCI data (e.g., credit card numbers)</label>
       <label><input type="checkbox" id="redactCustom" /> Redact custom words (e.g., project names)</label>
       <input type="text" id="customWords" placeholder="Enter words, comma-separated" style="width:100%;margin-top:0.5rem;padding:0.5rem;border-radius:6px;border:none;">
+      <label style="margin-top:0.5rem;">Redaction replacement:</label>
+      <select id="redactReplacement" style="width:100%;padding:0.5rem;border-radius:6px;border:none;margin-top:0.3rem;">
+        <option value="[REDACTED]">[REDACTED]</option>
+        <option value="[REMOVED]">[REMOVED]</option>
+        <option value="***">***</option>
+        <option value="[HIDDEN]">[HIDDEN]</option>
+      </select>
     </div>
 
     <button class="btn" onclick="redactText()">Redact</button>
@@ -161,6 +168,7 @@
       let text = document.getElementById('userInput').value;
       const redactPCI = document.getElementById('redactPCI').checked;
       const redactCustom = document.getElementById('redactCustom').checked;
+      const replacement = document.getElementById('redactReplacement').value;
       const customWords = document.getElementById('customWords').value
         .split(',')
         .map(word => word.trim())
@@ -174,7 +182,7 @@
       if (redactCustom && customWords.length > 0) {
         customWords.forEach(word => {
           const regex = new RegExp(word, 'gi');
-          text = text.replace(regex, '[REDACTED]');
+          text = text.replace(regex, replacement);
         });
       }
 
