@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6HTRJMY7DB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-6HTRJMY7DB');
-</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>KanActive AI</title>
@@ -90,6 +81,32 @@
       color: #cccccc;
     }
 
+    #consent-banner {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #002c3c;
+      color: var(--offwhite);
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      font-size: 0.9rem;
+      max-width: 300px;
+      z-index: 9999;
+    }
+
+    #consent-banner button {
+      background: var(--turquoise);
+      color: #002c3c;
+      border: none;
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-left: 0.5rem;
+      cursor: pointer;
+    }
+
     @media (max-width: 600px) {
       h1 {
         font-size: 2rem;
@@ -128,5 +145,47 @@
     </div>
     <p>&copy; 2025 KanActive AI. All rights reserved.</p>
   </footer>
+
+  <div id="consent-banner" style="display: none;">
+    This site uses cookies for analytics. <br />
+    <button onclick="acceptConsent()">Accept</button>
+    <button onclick="declineConsent()">Decline</button>
+  </div>
+
+  <script>
+    function loadGoogleAnalytics() {
+      const gaScript = document.createElement('script');
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-6HTRJMY7DB";
+      gaScript.async = true;
+      document.head.appendChild(gaScript);
+
+      const inlineScript = document.createElement('script');
+      inlineScript.innerHTML = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-6HTRJMY7DB', { 'anonymize_ip': true });
+      `;
+      document.head.appendChild(inlineScript);
+    }
+
+    function acceptConsent() {
+      localStorage.setItem('consentGiven', 'true');
+      loadGoogleAnalytics();
+      document.getElementById('consent-banner').style.display = 'none';
+    }
+
+    function declineConsent() {
+      localStorage.setItem('consentGiven', 'false');
+      document.getElementById('consent-banner').style.display = 'none';
+    }
+
+    // Show banner only if user hasn’t made a choice
+    if (!localStorage.getItem('consentGiven')) {
+      document.getElementById('consent-banner').style.display = 'block';
+    } else if (localStorage.getItem('consentGiven') === 'true') {
+      loadGoogleAnalytics();
+    }
+  </script>
 </body>
 </html>
