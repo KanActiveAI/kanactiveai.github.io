@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog | KanActive AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --teal: #008080;
+      --navy: #00303f;
+      --turquoise: #30d5c8;
+      --offwhite: #f0f0f0;
+      --dark-bg: linear-gradient(135deg, #001f29, #002c3c, #004050);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark-bg);
+      color: var(--offwhite);
+      margin: 0;
+      padding: 2rem;
+      line-height: 1.7;
+    }
+
+    h1, h2 {
+      color: var(--turquoise);
+    }
+
+    a {
+      color: var(--turquoise);
+      text-decoration: none;
+    }
+
+    .blog-post {
+      margin-bottom: 2rem;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: #cccccc;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>KanActive AI Blog</h1>
+
+  <div class="blog-post">
+    <h2><a href="blog-kanactive-lite.html">The Hidden Risk in the Prompt Box: Why We Built KanActive AI Lite</a></h2>
+    <p>Generative AI is changing how we work - and how we risk leaking sensitive data. Learn why we created KanActive AI Lite to protect your data at the source.</p>
+  </div>
+
+  <footer>
+    <div style="margin-bottom: 1rem;">
+      <a href="redact.html" class="btn">Try Free AI Redaction Tool</a>
+      <a href="blog.html" class="btn">Blog</a>
+      <a href="https://instagram.com/kanactiveai" target="_blank" class="btn">Instagram</a>
+      <a href="https://www.threads.net/@kanactiveai" target="_blank" class="btn">Threads</a>
+      <a href="privacy.html" target="_blank" class="btn">Privacy Policy</a>
+    </div>
+    &copy; 2025 KanActive AI. All rights reserved.
+  </footer>
+  <div id="consent-banner" style="display: none;">
+    This site uses cookies for analytics. <br />
+    <button onclick="acceptConsent()">Accept</button>
+    <button onclick="declineConsent()">Decline</button>
+  </div>
+
+  <script>
+    function loadGoogleAnalytics() {
+      const gaScript = document.createElement('script');
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-6HTRJMY7DB";
+      gaScript.async = true;
+      document.head.appendChild(gaScript);
+
+      const inlineScript = document.createElement('script');
+      inlineScript.innerHTML = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-6HTRJMY7DB', { 'anonymize_ip': true });
+      `;
+      document.head.appendChild(inlineScript);
+    }
+
+    function acceptConsent() {
+      localStorage.setItem('consentGiven', 'true');
+      loadGoogleAnalytics();
+      document.getElementById('consent-banner').style.display = 'none';
+    }
+
+    function declineConsent() {
+      localStorage.setItem('consentGiven', 'false');
+      document.getElementById('consent-banner').style.display = 'none';
+    }
+
+    // Show banner only if user hasn’t made a choice
+    if (!localStorage.getItem('consentGiven')) {
+      document.getElementById('consent-banner').style.display = 'block';
+    } else if (localStorage.getItem('consentGiven') === 'true') {
+      loadGoogleAnalytics();
+    }
+  </script>
+</body>
+</html>

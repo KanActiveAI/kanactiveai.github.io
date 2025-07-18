@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Hidden Risk in the Prompt Box | KanActive AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --teal: #008080;
+      --navy: #00303f;
+      --turquoise: #30d5c8;
+      --offwhite: #f0f0f0;
+      --dark-bg: linear-gradient(135deg, #001f29, #002c3c, #004050);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark-bg);
+      color: var(--offwhite);
+      margin: 0;
+      padding: 2rem;
+      line-height: 1.7;
+    }
+
+    h1, h2 {
+      color: var(--turquoise);
+    }
+
+    a {
+      color: var(--turquoise);
+      text-decoration: none;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: #cccccc;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>The Hidden Risk in the Prompt Box: Why We Built KanActive AI Lite</h1>
+
+  <p><strong>By KanActive AI | July 2024</strong></p>
+
+  <p>Generative AI has revolutionized the way we work - and the way we risk data loss.</p>
+  <p>From summarizing reports to drafting emails and writing code, tools like ChatGPT have become part of the daily workflow for professionals across industries. But as organizations race to adopt AI, data security teams are left scrambling to keep up with the risks these tools introduce.</p>
+  <p>One of the most overlooked - yet serious — risks? Sensitive data accidentally typed into AI tools.</p>
+
+  <h2>The Quiet Threat: Prompt-Level Data Leaks</h2>
+  <p>Washington State University recently outlined key risks tied to generative AI, including model poisoning, adversarial inputs, and deepfake abuse. But the most immediate and common issue facing organizations today is much simpler:</p>
+  <blockquote>People are putting company secrets directly into free AI tools, like ChatGPT.</blockquote>
+  <p>That could be:</p>
+  <ul>
+    <li>Credit card numbers (PCI data)</li>
+    <li>Customer information (PII)</li>
+    <li>Internal project code names</li>
+    <li>Confidential emails or financial statements</li>
+  </ul>
+
+  <h2>Why We Built KanActive AI Lite</h2>
+  <p>We created <strong>KanActive AI Lite</strong> to address a narrow but urgent problem: Preventing sensitive PCI data from being sent to ChatGPT.</p>
+  <p>KanActive AI Lite is a free Chrome extension that:</p>
+  <ul>
+    <li>Detects credit card numbers (PCI) in real time</li>
+    <li>Alerts users before the data is submitted</li>
+    <li>Stores everything locally — no servers, no data collection</li>
+    <li>Works seamlessly inside ChatGPT</li>
+  </ul>
+
+  <h2>We Believe in “Secure by Default”</h2>
+  <p>With KanActive AI Lite:</p>
+  <ul>
+    <li>Nothing is stored in the cloud</li>
+    <li>No signup is required</li>
+    <li>The extension only works on ChatGPT (for now)</li>
+    <li>You stay in control of your data</li>
+  </ul>
+
+  <p>This is a local-first tool built for security-conscious individuals and teams who want to explore AI without putting compliance at risk.</p>
+
+  <h2>What’s Next?</h2>
+  <p>We're currently inviting early testers to try the extension before public launch. If you're interested in helping shape the future of KanActive AI, join the waitlist <a href="https://forms.gle/v7dNrE4uvePD1nWKA"">here</a>.</p>
+
+
+  <footer>
+    <div style="margin-bottom: 1rem;">
+      <a href="redact.html" class="btn">Try Free AI Redaction Tool</a>
+      <a href="blog.html" class="btn">Blog</a>
+      <a href="https://instagram.com/kanactiveai" target="_blank" class="btn">Instagram</a>
+      <a href="https://www.threads.net/@kanactiveai" target="_blank" class="btn">Threads</a>
+      <a href="privacy.html" target="_blank" class="btn">Privacy Policy</a>
+    </div>
+    &copy; 2025 KanActive AI. All rights reserved.
+  </footer>
+  <div id="consent-banner" style="display: none;">
+    This site uses cookies for analytics. <br />
+    <button onclick="acceptConsent()">Accept</button>
+    <button onclick="declineConsent()">Decline</button>
+  </div>
+
+  <script>
+    function loadGoogleAnalytics() {
+      const gaScript = document.createElement('script');
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-6HTRJMY7DB";
+      gaScript.async = true;
+      document.head.appendChild(gaScript);
+
+      const inlineScript = document.createElement('script');
+      inlineScript.innerHTML = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-6HTRJMY7DB', { 'anonymize_ip': true });
+      `;
+      document.head.appendChild(inlineScript);
+    }
+
+    function acceptConsent() {
+      localStorage.setItem('consentGiven', 'true');
+      loadGoogleAnalytics();
+      document.getElementById('consent-banner').style.display = 'none';
+    }
+
+    function declineConsent() {
+      localStorage.setItem('consentGiven', 'false');
+      document.getElementById('consent-banner').style.display = 'none';
+    }
+
+    // Show banner only if user hasn’t made a choice
+    if (!localStorage.getItem('consentGiven')) {
+      document.getElementById('consent-banner').style.display = 'block';
+    } else if (localStorage.getItem('consentGiven') === 'true') {
+      loadGoogleAnalytics();
+    }
+  </script>
+</body>
+</html>
