@@ -14,11 +14,7 @@
       --dark-bg: linear-gradient(135deg, #001f29, #002c3c, #004050);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -27,32 +23,22 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       min-height: 100vh;
       text-align: center;
-      padding: 2rem;
+      padding: 2rem 2rem 4rem;
     }
 
-    header {
-      margin-bottom: 2rem;
-    }
+    header { margin: 1rem 0 2rem; }
+    header img { width: 100px; height: auto; margin-bottom: 1rem; }
 
-    header img {
-      width: 100px;
-      height: auto;
-      margin-bottom: 1rem;
-    }
-
-    h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: var(--turquoise);
-    }
+    h1 { font-size: 2.8rem; font-weight: 700; color: var(--turquoise); }
+    h3 { font-size: 1.25rem; }
 
     p {
       font-size: 1.1rem;
       margin: 1.2rem auto 2rem;
-      max-width: 600px;
+      max-width: 700px;
       line-height: 1.6;
       color: #cce0e3;
     }
@@ -68,102 +54,166 @@
       color: var(--turquoise);
       text-decoration: none;
       transition: all 0.3s ease;
+      font-weight: 600;
     }
-
-    .btn:hover {
+    .btn:hover { background: var(--turquoise); color: #002c3c; }
+    .btn-primary {
       background: var(--turquoise);
-      color: #002c3c;
+      color: #002c3c !important;
+      border-color: var(--turquoise);
+      font-weight: 700;
     }
 
-    footer {
-      margin-top: 3rem;
-      font-size: 0.85rem;
-      color: #cccccc;
+    .announce {
+      width: 100%;
+      max-width: 1100px;
+      background: #003a4d;
+      color: var(--offwhite);
+      padding: .75rem 1rem;
+      border-radius: 10px;
+      margin: 0 0 1rem 0;
+      display: flex; align-items: center; justify-content: center; gap:.6rem;
+      font-weight: 600;
+      flex-wrap: wrap;
     }
+
+    .badge {
+      display:inline-flex; align-items:center; gap:.5rem;
+      background:#001f29; border:1px solid #1e6473; border-radius:12px; padding:.5rem .9rem;
+      font-size:.95rem; color:#cce0e3; text-decoration:none;
+    }
+
+    .store-ctas {
+      display:flex; flex-wrap:wrap; gap:.75rem; justify-content:center; align-items:center;
+      margin-top: .5rem;
+    }
+
+    .trust { font-size:.95rem; color:#a6d2d7; margin-top:.6rem; }
+
+    .cards {
+      margin: 3rem 0;
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;
+      max-width: 1100px;
+    }
+    .card {
+      flex: 1 1 250px; background: #002c3c; padding: 1.5rem; border-radius: 10px; text-align: left;
+      min-width: 260px; max-width: 340px;
+    }
+    .card h3 { color: #30d5c8; margin-bottom: .4rem; }
+    .card p { color: #cce0e3; margin: 0; }
+
+    .steps {
+      display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap:1rem; max-width:900px; margin:0 auto 1rem;
+    }
+    .step {
+      background:#002c3c; border-radius:10px; padding:1.2rem; text-align:left;
+    }
+    .step h4 { color: var(--turquoise); margin-bottom:.4rem; }
+    .step p { margin:0; color:#cce0e3; }
+
+    footer { margin-top: 3rem; font-size: 0.85rem; color: #cccccc; text-align: center; }
+    footer .links { margin-bottom: 1rem; }
 
     #consent-banner {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #002c3c;
-      color: var(--offwhite);
-      padding: 1rem;
-      border-radius: 10px;
+      position: fixed; bottom: 20px; right: 20px;
+      background: #002c3c; color: var(--offwhite);
+      padding: 1rem; border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.5);
-      font-size: 0.9rem;
-      max-width: 300px;
-      z-index: 9999;
+      font-size: 0.9rem; max-width: 300px; z-index: 9999;
     }
-
     #consent-banner button {
-      background: var(--turquoise);
-      color: #002c3c;
-      border: none;
-      padding: 0.4rem 0.9rem;
-      border-radius: 20px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      margin-left: 0.5rem;
-      cursor: pointer;
+      background: var(--turquoise); color: #002c3c; border: none;
+      padding: 0.4rem 0.9rem; border-radius: 20px;
+      font-weight: 600; font-size: 0.85rem; margin-left: 0.5rem; cursor: pointer;
     }
 
     @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      p {
-        font-size: 1rem;
-      }
-
-      .btn {
-        width: 100%;
-        max-width: 300px;
-      }
+      h1 { font-size: 2rem; }
+      p { font-size: 1rem; }
+      .btn { width: 100%; max-width: 320px; }
+      .announce { border-radius: 8px; }
     }
   </style>
 </head>
 <body>
+
+  <!-- Announcement bar -->
+  <div class="announce" role="status" aria-live="polite">
+    🚀 New: KanActive AI browser extension is live.
+    <a href="https://chromewebstore.google.com/detail/ghdgeaglimfdcbkhlcdckhagncdijhcl?utm_source=item-share-cb" class="badge" aria-label="Add KanActive AI to Chrome">Add to Chrome</a>
+    <a href="https://microsoftedge.microsoft.com/addons/detail/kanactive-ai-lite/hiaaniknhpnnikgmaacmlmmdkjloinol" class="badge" aria-label="Get KanActive AI for Microsoft Edge">Get for Edge</a>
+  </div>
+
   <header>
     <img src="assets/newlogo.png" alt="KanActive AI Logo" />
     <h1>KanActive AI</h1>
   </header>
 
+  <!-- Hero -->
   <section>
     <p>
-      KanActive AI helps prevent sensitive data from leaking into AI tools like ChatGPT, Claude, and more.
+      Prevent sensitive data from leaking into AI tools like ChatGPT and Claude.
+      <strong>Redact locally—before the prompt leaves your browser.</strong>
     </p>
-    
-    <a href="https://forms.gle/v7dNrE4uvePD1nWKA" target="_blank" class="btn">Get Updates</a>
+
+    <div class="store-ctas">
+      <a href="https://chromewebstore.google.com/detail/ghdgeaglimfdcbkhlcdckhagncdijhcl?utm_source=item-share-cb" class="btn btn-primary" aria-label="Add KanActive AI extension to Chrome">Add to Chrome</a>
+      <!-- Optional Edge button: uncomment when ready -->
+      <a href="https://microsoftedge.microsoft.com/addons/detail/kanactive-ai-lite/hiaaniknhpnnikgmaacmlmmdkjloinol" class="btn" aria-label="Get KanActive AI extension for Edge">Get for Edge</a>
+      <a href="redact.html" class="btn">Try Free Redaction Tool</a>
+    </div>
+
+    <div class="trust">Free Lite version • Runs locally • No plaintext storage</div>
   </section>
 
-  <section style="margin: 3rem 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; max-width: 900px;">
-    <div style="flex: 1 1 250px; background: #002c3c; padding: 1.5rem; border-radius: 10px;">
-      <h3 style="color: #30d5c8;">🔒 Built for Privacy</h3>
-      <p style="color: #cce0e3;">Redact sensitive data locally before it leaves your browser. Nothing stored in plaintext.</p>
+  <!-- Feature cards -->
+  <section class="cards">
+    <div class="card">
+      <h3>🔒 Built for Privacy</h3>
+      <p>Redact sensitive data locally before it leaves your browser. Nothing stored in plaintext.</p>
     </div>
-    <div style="flex: 1 1 250px; background: #002c3c; padding: 1.5rem; border-radius: 10px;">
-      <h3 style="color: #30d5c8;">⚡ Fast & Lightweight</h3>
-      <p style="color: #cce0e3;">Runs directly in your browser. No executables, no complex deployments, just clean redactions in seconds.</p>
+    <div class="card">
+      <h3>⚡ Fast & Lightweight</h3>
+      <p>Runs directly in your browser. No executables, no complex deployments—clean redactions in seconds.</p>
     </div>
-    <div style="flex: 1 1 250px; background: #002c3c; padding: 1.5rem; border-radius: 10px;">
-      <h3 style="color: #30d5c8;">💡 AI-Ready Protection</h3>
-      <p style="color: #cce0e3;">Designed specifically for prompts to ChatGPT and other top AI tools. Guard your data at the source.</p>
+    <div class="card">
+      <h3>💡 AI‑Ready Protection</h3>
+      <p>Designed specifically for prompts to ChatGPT and other top AI tools. Guard your data at the source.</p>
     </div>
   </section>
-  
+
+  <!-- How it works -->
+  <section class="steps" aria-labelledby="how-it-works">
+    <h2 id="how-it-works" style="position:absolute; left:-9999px;">How it works</h2>
+    <div class="step">
+      <h4>1) Type as usual</h4>
+      <p>Use ChatGPT or other AI tools—no new workflows to learn.</p>
+    </div>
+    <div class="step">
+      <h4>2) We detect sensitive text</h4>
+      <p>PCI (credit cards) supported now; SSN and more coming soon.</p>
+    </div>
+    <div class="step">
+      <h4>3) Redact locally, instantly</h4>
+      <p>Replace with safe placeholders before anything is sent.</p>
+    </div>
+  </section>
 
   <footer>
-    <div style="margin-bottom: 1rem;">
+    <p style="margin-top:1.2rem; color:#a6d2d7;">Works with: ChatGPT • (more soon)</p>
+    <div class="links" style="margin-top:.6rem;">
       <a href="redact.html" class="btn">Try Free AI Redaction Tool</a>
       <a href="blog.html" class="btn">Blog</a>
-      <a href="https://instagram.com/kanactiveai" target="_blank" class="btn">Instagram</a>
-      <a href="https://www.threads.net/@kanactiveai" target="_blank" class="btn">Threads</a>
-      <a href="privacy.html" target="_blank" class="btn">Privacy Policy</a>
+      <a href="https://instagram.com/kanactiveai" target="_blank" class="btn" rel="noopener">Instagram</a>
+      <a href="https://www.threads.net/@kanactiveai" target="_blank" class="btn" rel="noopener">Threads</a>
+      <a href="https://forms.gle/v7dNrE4uvePD1nWKA" target="_blank" class="btn" rel="noopener">Get Updates</a>
+      <a href="privacy.html" target="_blank" class="btn" rel="noopener">Privacy Policy</a>
     </div>
     <p>&copy; 2025 KanActive AI. All rights reserved.</p>
   </footer>
 
+  <!-- Consent banner (unchanged logic, still lazy‑loads GA only on accept) -->
   <div id="consent-banner" style="display: none;">
     This site uses cookies for analytics. <br />
     <button onclick="acceptConsent()">Accept</button>
@@ -204,6 +254,24 @@
     } else if (localStorage.getItem('consentGiven') === 'true') {
       loadGoogleAnalytics();
     }
+  </script>
+
+  <!-- JSON-LD for SEO (fill in CHROME_STORE_URL and your site URL if different) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "KanActive AI",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "ChromeOS, Windows, macOS, Linux",
+    "softwareVersion": "Lite",
+    "description": "Browser extension that locally redacts sensitive data (e.g., PCI) before prompts are sent to AI tools.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "url": "https://kanactive.ai/",
+    "downloadUrl": "https://chromewebstore.google.com/detail/ghdgeaglimfdcbkhlcdckhagncdijhcl",
+    "screenshot": "https://kanactive.ai/assets/newlogo.png",
+    "publisher": { "@type": "Organization", "name": "KanActive AI" }
+  }
   </script>
 </body>
 </html>
