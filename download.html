@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Download KanActive AI Lite | KanActive AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --teal: #008080;
+      --navy: #00303f;
+      --turquoise: #30d5c8;
+      --offwhite: #f0f0f0;
+      --dark-bg: linear-gradient(135deg, #001f29, #002c3c, #004050);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark-bg);
+      color: var(--offwhite);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem 2rem 4rem;
+      text-align: center;
+    }
+
+    header { margin: 0 0 2rem; }
+    header img { width: 110px; height: auto; margin-bottom: 1rem; }
+    h1 { font-size: 2.6rem; font-weight: 700; color: var(--turquoise); }
+    p.lead {
+      font-size: 1.15rem; line-height: 1.7; color: #cce0e3;
+      max-width: 780px; margin: 1rem auto 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.85rem 1.8rem;
+      font-size: 1rem;
+      border: 2px solid var(--turquoise);
+      border-radius: 30px;
+      background: transparent;
+      color: var(--turquoise);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+    .btn:hover { background: var(--turquoise); color: #002c3c; }
+    .btn-primary {
+      background: var(--turquoise);
+      color: #002c3c !important;
+      border-color: var(--turquoise);
+      font-weight: 700;
+    }
+
+    .grid {
+      width: 100%;
+      max-width: 1100px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+      margin: 1rem auto 2.5rem;
+    }
+
+    .card {
+      background: #002c3c;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .card h2 { color: var(--turquoise); font-size: 1.4rem; }
+    .card p { color: #cce0e3; margin-top: 0.2rem; }
+
+    .badge-row {
+      display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .4rem;
+    }
+    .mini-badge {
+      font-size: .9rem; color: #cce0e3; background: #001f29;
+      border: 1px solid #1e6473; border-radius: 999px; padding: .35rem .7rem;
+    }
+
+    .platform {
+      display: flex; align-items: center; gap: .6rem;
+      font-weight: 700; color: #d6f4f3;
+    }
+    .plat-icon {
+      width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center;
+      background:#001f29; border:1px solid #1e6473; border-radius: 8px; font-size: 0.9rem;
+    }
+
+    .actions { margin-top: .6rem; display:flex; gap:.5rem; flex-wrap:wrap; }
+    .note { font-size: .95rem; color:#a6d2d7; margin-top: .4rem; }
+
+    .extras {
+      max-width: 980px; margin: 0 auto; text-align: left;
+      background: #003a4d; border-radius: 12px; padding: 1rem 1.2rem;
+    }
+    .extras h3 { color: var(--turquoise); margin-bottom: .4rem; }
+    .extras ul { margin-left: 1.1rem; line-height: 1.7; color: #cce0e3; }
+    .extras a { color: var(--turquoise); text-decoration: none; }
+
+    footer { margin-top: 3rem; font-size: 0.85rem; color: #cccccc; text-align: center; }
+    footer .links { margin-bottom: 1rem; }
+
+    #consent-banner {
+      position: fixed; bottom: 20px; right: 20px;
+      background: #002c3c; color: var(--offwhite);
+      padding: 1rem; border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      font-size: 0.9rem; max-width: 300px; z-index: 9999;
+    }
+    #consent-banner button {
+      background: var(--turquoise); color: #002c3c; border: none;
+      padding: 0.4rem 0.9rem; border-radius: 20px;
+      font-weight: 600; font-size: 0.85rem; margin-left: 0.5rem; cursor: pointer;
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 2rem; }
+      .btn { width: 100%; max-width: 340px; }
+      body { padding: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="assets/updated_logo.png" alt="KanActive AI logo" />
+    <h1>Download KanActive AI Lite</h1>
+    <p class="lead">
+      Get the free browser extension that redacts sensitive data <em>locally</em> before prompts leave your browser.
+      Choose your browser below to install.
+    </p>
+  </header>
+
+  <section class="grid" aria-label="Download options">
+    <!-- Chrome -->
+    <article class="card" aria-labelledby="chrome-title">
+      <div class="platform">
+        <img src="assets/chrome.png" alt="Chrome logo" class="plat-icon" />
+        <h2 id="chrome-title">Google Chrome</h2>
+      </div>
+      <p>Install the Lite extension from the Chrome Web Store. Works on Windows, macOS, Linux, and ChromeOS.</p>
+      <div class="badge-row" aria-hidden="true">
+        <span class="mini-badge">Free</span>
+        <span class="mini-badge">Runs locally</span>
+        <span class="mini-badge">No signup</span>
+      </div>
+      <div class="actions">
+        <a
+          href="https://chromewebstore.google.com/detail/ghdgeaglimfdcbkhlcdckhagncdijhcl?utm_source=item-share-cb"
+          class="btn btn-primary"
+          aria-label="Add KanActive AI Lite to Google Chrome"
+          rel="noopener"
+        >Add to Chrome</a>
+        <a href="lite-extension-privacy.html" class="btn" rel="noopener">Privacy Policy</a>
+      </div>
+    </article>
+
+    <!-- Microsoft Edge -->
+    <article class="card" aria-labelledby="edge-title">
+      <div class="platform">
+        <img src="assets/edge.png" alt="Edge logo" class="plat-icon" />
+        <h2 id="edge-title">Microsoft Edge</h2>
+      </div>
+      <p>Install the Lite extension from the Microsoft Edge Add-ons store. Works on Windows and macOS.</p>
+      <div class="badge-row" aria-hidden="true">
+        <span class="mini-badge">Free</span>
+        <span class="mini-badge">Runs locally</span>
+        <span class="mini-badge">No signup</span>
+      </div>
+      <div class="actions">
+        <a
+          href="https://microsoftedge.microsoft.com/addons/detail/kanactive-ai-lite/hiaaniknhpnnikgmaacmlmmdkjloinol"
+          class="btn btn-primary"
+          aria-label="Get KanActive AI Lite for Microsoft Edge"
+          rel="noopener"
+        >Get for Edge</a>
+        <a href="lite-extension-privacy.html" class="btn" rel="noopener">Privacy Policy</a>
+      </div>
+    </article>
+  </section>
+
+  <section class="extras" aria-labelledby="after-install">
+    <h3 id="after-install">After you install</h3>
+    <ul>
+      <li>Open <strong>ChatGPT</strong> and type normally—detection runs automatically.</li>
+      <li>PCI (credit card) and US SSN detection are supported now; more classifiers coming.</li>
+      <li>Redactions happen in the browser; KanActive servers don’t receive your prompt text.</li>
+      <li>Questions? See <a href="blog.html">our blog</a> or reach out on
+        <a href="https://www.threads.net/@kanactiveai" target="_blank" rel="noopener">Threads</a>.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <div class="links" style="margin-top:1rem;">
+      <a href="redact.html" class="btn">Try Free AI Redaction Tool</a>
+      <a href="blog.html" class="btn">Blog</a>
+      <a href="https://instagram.com/kanactiveai" target="_blank" class="btn" rel="noopener">Instagram</a>
+      <a href="https://www.threads.net/@kanactiveai" target="_blank" class="btn" rel="noopener">Threads</a>
+      <a href="https://forms.gle/v7dNrE4uvePD1nWKA" target="_blank" class="btn" rel="noopener">Get Updates</a>
+      <a href="privacy.html" target="_blank" class="btn" rel="noopener">Privacy Policy</a>
+    </div>
+    <p style="color:#a6d2d7;">&copy; 2025 KanActive AI. All rights reserved.</p>
+  </footer>
+
+  <!-- Consent banner (same lazy‑load GA behavior as other pages) -->
+  <div id="consent-banner" style="display: none;">
+    This site uses cookies for analytics. <br />
+    <button onclick="acceptConsent()">Accept</button>
+    <button onclick="declineConsent()">Decline</button>
+  </div>
+
+  <script>
+    function loadGoogleAnalytics() {
+      const gaScript = document.createElement('script');
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-6HTRJMY7DB";
+      gaScript.async = true;
+      document.head.appendChild(gaScript);
+
+      const inlineScript = document.createElement('script');
+      inlineScript.innerHTML = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-6HTRJMY7DB', { 'anonymize_ip': true });
+      `;
+      document.head.appendChild(inlineScript);
+    }
+
+    function acceptConsent() {
+      localStorage.setItem('consentGiven', 'true');
+      loadGoogleAnalytics();
+      document.getElementById('consent-banner').style.display = 'none';
+    }
+
+    function declineConsent() {
+      localStorage.setItem('consentGiven', 'false');
+      document.getElementById('consent-banner').style.display = 'none';
+    }
+
+    if (!localStorage.getItem('consentGiven')) {
+      document.getElementById('consent-banner').style.display = 'block';
+    } else if (localStorage.getItem('consentGiven') === 'true') {
+      loadGoogleAnalytics();
+    }
+  </script>
+
+  <!-- Optional: software metadata for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"KanActive AI Lite",
+    "applicationCategory":"SecurityApplication",
+    "operatingSystem":"ChromeOS, Windows, macOS, Linux",
+    "softwareVersion":"Lite",
+    "description":"Browser extension that locally redacts sensitive data (e.g., PCI) before prompts are sent to AI tools.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "downloadUrl": "https://chromewebstore.google.com/detail/ghdgeaglimfdcbkhlcdckhagncdijhcl",
+    "publisher": { "@type": "Organization", "name": "KanActive AI" }
+  }
+  </script>
+</body>
+</html>
