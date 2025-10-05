@@ -12,6 +12,81 @@
       --turquoise: #30d5c8;
       --offwhite: #f0f0f0;
       --dark-bg: linear-gradient(135deg, #001f29, #002c3c, #004050);
+      --sand: #f2e6d2;
+    }
+
+     * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    .topnav { box-shadow: 0 2px 10px rgba(0,0,0,.12); }
+
+    /* --- Top Navbar --- */
+    .topnav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--sand);
+      border-bottom: 1px solid #e3d5bd;
+      color: var(--navy);
+      width: 100%;              /* make navbar full width */
+      margin-bottom: 2rem; /* space below navbar */
+    }
+    .topnav .bar {
+      width: 100%;              /* stretch bar full width */
+      margin: 0;                /* remove auto margin */
+      padding: .65rem 2rem;     /* adjust padding */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      display: inline-flex; align-items: center; gap: .6rem;
+      text-decoration: none; color: var(--navy); font-weight: 700;
+    }
+    .brand img { height: 40px; width: auto; display:block; }
+    .brand span { font-size: 1.05rem; letter-spacing: .2px; }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .nav-links a {
+      color: var(--navy); text-decoration: none; font-weight: 600; font-size: .98rem;
+      padding: .4rem .5rem; border-radius: 8px;
+    }
+    .nav-links a:hover, .nav-links a:focus {
+      background: #eadcc3; outline: none;
+    }
+
+    /* Contact pill (optional highlight) */
+    .nav-cta {
+      border: 2px solid var(--navy);
+      padding: .35rem .8rem; border-radius: 999px; font-weight: 700;
+    }
+
+    /* --- Hamburger --- */
+    .hamburger {
+      display: none; background: transparent; border: 0; padding: .4rem; margin: 0;
+      line-height: 0; border-radius: 8px; cursor: pointer;
+    }
+    .hamburger:focus-visible { outline: 2px solid #5a7b86; }
+    .hamburger svg { width: 24px; height: 24px; fill: var(--navy); }
+
+    /* Mobile menu panel */
+    .mobile-panel {
+      display: none;
+      border-top: 1px solid #e7d9c3;
+      background: var(--sand);
+    }
+    .mobile-panel.open { display:block; }
+    .mobile-panel a {
+      display:block; padding: .9rem 1rem; border-bottom: 1px solid #eadcc3;
+      color: var(--navy); text-decoration: none; font-weight: 600;
+    }
+    .mobile-panel a:last-child { border-bottom: 0; }
+
+    /* --- Breakpoint --- */
+    @media (max-width: 800px) {
+      .nav-links { display: none; }
+      .hamburger { display: inline-flex; }
     }
 
     body {
@@ -131,6 +206,38 @@
   </style>
 </head>
 <body>
+  <!-- Top Navbar -->
+<nav class="topnav" role="navigation" aria-label="Main">
+  <div class="bar">
+    <a class="brand" href="index.html">
+      <img src="../assets/kanactive_corner.png" alt="KanActive AI logo" />
+      <!--<span>KanActive AI</span>-->
+    </a>
+
+    <!-- Desktop links -->
+    <div class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="download.html">Download</a>
+      <a href="blog.html">Blog</a>
+      <!--<a href="blog.html">News &amp; Events</a>-->
+      <a class="nav-cta" href="download.html">Get KanActive AI Lite</a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button class="hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile panel -->
+  <div class="mobile-panel" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="download.html">Download</a>
+    <a href="blog.html">Blog</a>
+  </div>
+</nav>
   <h1>How to Disable Data Collection in ChatGPT</h1>
   <p><strong>By KanActive AI | August 2025</strong></p>
 
