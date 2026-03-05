@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Free AI Prompt Redaction Tool | KanActive AI</title>
+  <title>Download KanActive AI Lite - Free Security Extension for ChatGPT, Claude, Gemini &amp; DeepSeek</title>
+  <meta name="description" content="Download KanActive AI Lite for Chrome and Edge. Free browser extension that locally redacts sensitive data before sending prompts to ChatGPT, Claude, Gemini, and DeepSeek." />
+  <meta name="keywords" content="download KanActive AI, ChatGPT security extension, Claude privacy extension, Gemini data protection, DeepSeek security, browser extension download, free security tool" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -111,7 +113,7 @@
 
     /* ─── PAGE CONTENT ───────────────────────────── */
     .page-content {
-      max-width: 760px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 4rem 2.5rem 6rem;
     }
@@ -126,7 +128,12 @@
       margin-bottom: 1rem;
     }
 
-    .page-content h1 {
+    .page-header {
+      max-width: 680px;
+      margin-bottom: 3rem;
+    }
+
+    .page-header h1 {
       font-size: clamp(1.9rem, 3.5vw, 2.75rem);
       font-weight: 800;
       line-height: 1.1;
@@ -135,7 +142,7 @@
       margin-bottom: 1rem;
     }
 
-    .page-content h1 span {
+    .page-header h1 span {
       color: var(--teal);
     }
 
@@ -143,143 +150,88 @@
       font-size: 1.05rem;
       line-height: 1.7;
       color: var(--text-muted);
-      margin-bottom: 2.5rem;
-      max-width: 580px;
     }
 
-    /* ─── TOOL CARD ──────────────────────────────── */
-    .tool-card {
+    /* ─── DOWNLOAD GRID ──────────────────────────── */
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .download-card {
       background: var(--navy-card);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 2.25rem 2rem;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-    }
-
-    .tool-card label {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.02em;
-    }
-
-    textarea {
-      width: 100%;
-      height: 180px;
-      padding: 0.875rem 1rem;
-      margin-bottom: 1.5rem;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: var(--navy-mid);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
-      line-height: 1.6;
-      resize: vertical;
-      transition: border-color 0.18s;
-    }
-
-    textarea:focus {
-      outline: none;
-      border-color: rgba(48, 213, 200, 0.4);
-    }
-
-    textarea::placeholder {
-      color: var(--text-dim);
-    }
-
-    .options {
-      margin-bottom: 1.5rem;
+      padding: 2rem 1.75rem;
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
+      gap: 0.75rem;
+      transition: border-color 0.2s, transform 0.2s;
     }
 
-    .options label {
+    .download-card:hover {
+      border-color: rgba(48, 213, 200, 0.35);
+      transform: translateY(-3px);
+    }
+
+    .browser-header {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      cursor: pointer;
-      margin-bottom: 0;
-    }
-
-    .options label:hover {
-      color: var(--text);
-    }
-
-    .options input[type="checkbox"] {
-      accent-color: var(--teal);
-      width: 15px;
-      height: 15px;
-      cursor: pointer;
-    }
-
-    .options input[type="text"],
-    .options select {
-      width: 100%;
-      padding: 0.6rem 0.875rem;
-      border-radius: 7px;
-      border: 1px solid var(--border);
-      background: var(--navy-mid);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9rem;
-      transition: border-color 0.18s;
-      margin-top: 0.15rem;
-    }
-
-    .options input[type="text"]:focus,
-    .options select:focus {
-      outline: none;
-      border-color: rgba(48, 213, 200, 0.4);
-    }
-
-    .options input[type="text"]::placeholder {
-      color: var(--text-dim);
-    }
-
-    .options select option {
-      background: var(--navy-card);
-    }
-
-    .options-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
       gap: 0.75rem;
-      margin-top: 0.5rem;
     }
 
-    .options-field label {
-      font-size: 0.82rem;
-      font-weight: 600;
+    .browser-icon img {
+      width: 2rem;
+      height: 2rem;
+      object-fit: contain;
+    }
+
+    .download-card h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+
+    .download-card p {
+      font-size: 0.9rem;
+      line-height: 1.65;
       color: var(--text-dim);
-      margin-bottom: 0.35rem;
-      letter-spacing: 0.02em;
     }
 
-    .btn-actions {
+    .badge-row {
       display: flex;
-      gap: 0.75rem;
-      margin-bottom: 1.5rem;
       flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .badge {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--teal);
+      background: rgba(48, 213, 200, 0.1);
+      border: 1px solid rgba(48, 213, 200, 0.2);
+      border-radius: 999px;
+      padding: 0.25rem 0.65rem;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 0.25rem;
     }
 
     .btn-primary {
       display: inline-block;
       background: var(--teal);
       color: var(--navy);
-      padding: 0.75rem 1.75rem;
+      padding: 0.7rem 1.5rem;
       border-radius: 8px;
-      font-family: 'Inter', sans-serif;
       font-weight: 700;
       font-size: 0.9rem;
-      border: none;
-      cursor: pointer;
       text-decoration: none;
       transition: background 0.18s, transform 0.12s, box-shadow 0.18s;
       box-shadow: 0 4px 18px rgba(48, 213, 200, 0.25);
@@ -296,14 +248,12 @@
       display: inline-block;
       background: transparent;
       color: var(--text-muted);
-      padding: 0.75rem 1.5rem;
+      padding: 0.7rem 1.25rem;
       border-radius: 8px;
-      font-family: 'Inter', sans-serif;
       font-weight: 600;
       font-size: 0.9rem;
-      border: 1px solid var(--border);
-      cursor: pointer;
       text-decoration: none;
+      border: 1px solid var(--border);
       transition: color 0.18s, border-color 0.18s, background 0.18s;
       white-space: nowrap;
     }
@@ -314,35 +264,53 @@
       background: rgba(255,255,255,0.04);
     }
 
-    #output {
-      margin-top: 0.25rem;
-      white-space: pre-wrap;
+    /* ─── AFTER INSTALL ──────────────────────────── */
+    .after-install {
       background: var(--navy-mid);
       border: 1px solid var(--border);
-      padding: 1rem 1.125rem;
-      border-radius: 8px;
-      color: var(--text);
-      font-size: 0.92rem;
+      border-radius: 14px;
+      padding: 2rem 1.75rem;
+    }
+
+    .after-install h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .after-install ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .after-install li {
+      font-size: 0.9rem;
       line-height: 1.65;
-      min-height: 60px;
-      display: none;
-    }
-
-    #output.visible {
-      display: block;
-    }
-
-    .output-label {
-      font-size: 0.82rem;
-      font-weight: 600;
       color: var(--text-dim);
-      letter-spacing: 0.02em;
-      margin-bottom: 0.4rem;
-      display: none;
+      padding-left: 1.25rem;
+      position: relative;
     }
 
-    .output-label.visible {
-      display: block;
+    .after-install li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+      font-weight: 600;
+    }
+
+    .after-install a {
+      color: var(--teal);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .after-install a:hover {
+      border-color: var(--teal);
     }
 
     /* ─── FOOTER ─────────────────────────────────── */
@@ -454,10 +422,6 @@
     }
 
     /* ─── RESPONSIVE ─────────────────────────────── */
-    @media (max-width: 900px) {
-      .options-row { grid-template-columns: 1fr; }
-    }
-
     @media (max-width: 640px) {
       .navbar { padding: 0 1.25rem; }
       .nav-links li:not(:last-child) { display: none; }
@@ -478,7 +442,7 @@
     <ul class="nav-links">
       <li><a href="/#product">Product</a></li>
       <li><a href="solution.html">Solution</a></li>
-      <li><a href="redact.html">Download</a></li>
+      <li><a href="redact.html">Redact</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="download.html" class="btn-nav">Get KanActive AI Lite</a></li>
     </ul>
@@ -486,43 +450,60 @@
 
   <!-- ─── MAIN CONTENT ─────────────────────────────────────── -->
   <main class="page-content">
-    <span class="eyebrow">Free Tool</span>
-    <h1>AI Prompt <span>Redaction Tool</span></h1>
-    <p class="page-intro">Remove sensitive data like credit card numbers or custom keywords from your AI prompts before you hit send.</p>
-
-    <div class="tool-card">
-      <label for="userInput">Your prompt or text</label>
-      <textarea id="userInput" placeholder="Paste your AI prompt or text here..."></textarea>
-
-      <div class="options">
-        <label><input type="checkbox" id="redactPCI" checked /> Redact PCI data (e.g., credit card numbers)</label>
-        <label><input type="checkbox" id="redactCustom" /> Redact custom words (e.g., project names)</label>
-
-        <div class="options-row">
-          <div class="options-field">
-            <label for="customWords">Custom words (comma-separated)</label>
-            <input type="text" id="customWords" placeholder="e.g., Acme Corp, Project X" />
-          </div>
-          <div class="options-field">
-            <label for="redactReplacement">Replacement text</label>
-            <select id="redactReplacement">
-              <option value="[REDACTED]">[REDACTED]</option>
-              <option value="[REMOVED]">[REMOVED]</option>
-              <option value="***">***</option>
-              <option value="[HIDDEN]">[HIDDEN]</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <div class="btn-actions">
-        <button class="btn-primary" onclick="redactText()">Redact</button>
-        <button class="btn-ghost" onclick="clearText()">Clear</button>
-      </div>
-
-      <div class="output-label" id="outputLabel">Redacted output</div>
-      <div id="output"></div>
+    <div class="page-header">
+      <span class="eyebrow">Free Download</span>
+      <h1>Download <span>KanActive AI Lite</span></h1>
+      <p class="page-intro">Get the free browser extension that redacts sensitive data <em>locally</em> before prompts leave your browser. Choose your browser below to install.</p>
     </div>
+
+    <div class="download-grid">
+      <!-- Chrome -->
+      <article class="download-card" aria-labelledby="chrome-title">
+        <div class="browser-header">
+          <div class="browser-icon"><img src="assets/chrome.png" alt="Google Chrome" /></div>
+          <h2 id="chrome-title">Google Chrome</h2>
+        </div>
+        <p>Install the Lite extension from the Chrome Web Store. Works on Windows, macOS, Linux, and ChromeOS.</p>
+        <div class="badge-row" aria-hidden="true">
+          <span class="badge">Free</span>
+          <span class="badge">Runs locally</span>
+          <span class="badge">No signup</span>
+        </div>
+        <div class="card-actions">
+          <a href="https://chromewebstore.google.com/detail/ghdgeaglimfdcbkhlcdckhagncdijhcl?utm_source=item-share-cb" class="btn-primary" aria-label="Add KanActive AI Lite to Google Chrome" rel="noopener" target="_blank">Add to Chrome</a>
+          <a href="lite-extension-privacy.html" class="btn-ghost">Privacy Policy</a>
+        </div>
+      </article>
+
+      <!-- Microsoft Edge -->
+      <article class="download-card" aria-labelledby="edge-title">
+        <div class="browser-header">
+          <div class="browser-icon"><img src="assets/edge.png" alt="Microsoft Edge" /></div>
+          <h2 id="edge-title">Microsoft Edge</h2>
+        </div>
+        <p>Install the Lite extension from the Microsoft Edge Add-ons store. Works on Windows and macOS.</p>
+        <div class="badge-row" aria-hidden="true">
+          <span class="badge">Free</span>
+          <span class="badge">Runs locally</span>
+          <span class="badge">No signup</span>
+        </div>
+        <div class="card-actions">
+          <a href="https://microsoftedge.microsoft.com/addons/detail/kanactive-ai-lite/hiaaniknhpnnikgmaacmlmmdkjloinol" class="btn-primary" aria-label="Get KanActive AI Lite for Microsoft Edge" rel="noopener" target="_blank">Get for Edge</a>
+          <a href="lite-extension-privacy.html" class="btn-ghost">Privacy Policy</a>
+        </div>
+      </article>
+    </div>
+
+    <!-- After install -->
+    <section class="after-install" aria-labelledby="after-install-title">
+      <h3 id="after-install-title">After you install</h3>
+      <ul>
+        <li>Open <strong>ChatGPT</strong>, <strong>Claude</strong>, <strong>Gemini</strong>, or <strong>DeepSeek</strong> and type normally — detection runs automatically.</li>
+        <li>Credit cards, SSNs, and other sensitive data patterns are detected in real-time.</li>
+        <li>Redactions happen in the browser; KanActive servers don't receive your prompt text.</li>
+        <li>Questions? See <a href="blog.html">our blog</a> or reach out on <a href="https://www.threads.net/@kanactiveai" target="_blank" rel="noopener">Threads</a>.</li>
+      </ul>
+    </section>
   </main>
 
   <!-- ─── FOOTER ────────────────────────────────────────────── -->
@@ -589,45 +570,36 @@
     }
   </script>
 
-  <!-- Existing tool logic: DO NOT TOUCH -->
-  <script>
-    function redactText() {
-      let text = document.getElementById('userInput').value;
-      const redactPCI = document.getElementById('redactPCI').checked;
-      const redactCustom = document.getElementById('redactCustom').checked;
-      const replacement = document.getElementById('redactReplacement').value;
-      const customWords = document.getElementById('customWords').value
-        .split(',')
-        .map(word => word.trim())
-        .filter(Boolean);
-
-      if (redactPCI) {
-        text = text.replace(/\b(?:\d[ -]*?){13,19}\b/g, '[REDACTED PCI]');
-      }
-
-      if (redactCustom && customWords.length > 0) {
-        customWords.forEach(word => {
-          const regex = new RegExp(word, 'gi');
-          text = text.replace(regex, replacement);
-        });
-      }
-
-      const outputEl = document.getElementById('output');
-      const labelEl = document.getElementById('outputLabel');
-      outputEl.textContent = text || '[Nothing to display]';
-      outputEl.classList.add('visible');
-      labelEl.classList.add('visible');
+  <!-- JSON-LD for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "KanActive AI Lite",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "ChromeOS, Windows, macOS, Linux",
+    "softwareVersion": "Lite",
+    "description": "Browser extension that locally redacts sensitive data (PCI, SSN) before prompts are sent to ChatGPT, Claude, Gemini, and DeepSeek. Protects your privacy with local-only processing.",
+    "featureList": [
+      "Local PCI data redaction",
+      "SSN detection and protection",
+      "Works with ChatGPT, Claude, Gemini, DeepSeek",
+      "No cloud storage or data collection",
+      "Real-time sensitive data detection",
+      "Browser-based privacy protection"
+    ],
+    "keywords": "ChatGPT security, Claude privacy, Gemini data protection, DeepSeek security, AI prompt protection, PCI redaction, SSN protection",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "url": "https://kanactiveai.github.io/download.html",
+    "downloadUrl": "https://chromewebstore.google.com/detail/ghdgeaglimfdcbkhlcdckhagncdijhcl",
+    "publisher": { "@type": "Organization", "name": "KanActive AI" },
+    "browserRequirements": "Requires Chrome or Edge browser",
+    "softwareAddOn": {
+      "@type": "SoftwareApplication",
+      "name": "Chrome Extension"
     }
-
-    function clearText() {
-      document.getElementById('userInput').value = '';
-      const outputEl = document.getElementById('output');
-      const labelEl = document.getElementById('outputLabel');
-      outputEl.textContent = '';
-      outputEl.classList.remove('visible');
-      labelEl.classList.remove('visible');
-      document.getElementById('customWords').value = '';
-    }
+  }
   </script>
+
 </body>
 </html>

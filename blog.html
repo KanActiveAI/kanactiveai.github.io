@@ -4,92 +4,362 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Blog | KanActive AI</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --teal: #008080;
-      --navy: #00303f;
-      --turquoise: #30d5c8;
-      --offwhite: #f0f0f0;
-      --dark-bg: linear-gradient(135deg, #001f29, #002c3c, #004050);
+      --teal:      #30d5c8;
+      --teal-dim:  rgba(48, 213, 200, 0.18);
+      --navy:      #080f1a;
+      --navy-mid:  #0d1a26;
+      --navy-card: #0f1d2e;
+      --navy-bar:  #1a2d3e;
+      --text:      #e8f0f2;
+      --text-muted:#8aa8b0;
+      --text-dim:  #7a9aa5;
+      --border:    rgba(48, 213, 200, 0.13);
     }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--dark-bg);
-      color: var(--offwhite);
-      margin: 0;
-      padding: 2rem;
-      line-height: 1.7;
+      background: var(--navy);
+      color: var(--text);
+      line-height: 1.5;
     }
 
-    .btn {
+    a { color: inherit; }
+
+    /* ─── NAVBAR ─────────────────────────────────── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--navy);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2.5rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+      flex-shrink: 0;
+    }
+
+    .nav-brand img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      display: block;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.4rem 0.85rem;
+      border-radius: 6px;
+      transition: color 0.18s, background 0.18s;
+    }
+
+    .nav-links li a:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .btn-nav {
+      background: var(--teal) !important;
+      color: var(--navy) !important;
+      font-weight: 700 !important;
+      font-size: 0.875rem !important;
+      padding: 0.5rem 1.2rem !important;
+      border-radius: 7px !important;
+      margin-left: 0.75rem;
+      transition: background 0.18s, transform 0.12s, box-shadow 0.18s !important;
+      box-shadow: 0 2px 12px rgba(48, 213, 200, 0.22);
+    }
+
+    .btn-nav:hover {
+      background: #45e8db !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 18px rgba(48, 213, 200, 0.35) !important;
+    }
+
+    /* ─── PAGE CONTENT ───────────────────────────── */
+    .page-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4rem 2.5rem 6rem;
+    }
+
+    .eyebrow {
       display: inline-block;
-      margin: 0.5rem;
-      padding: 0.8rem 1.8rem;
-      font-size: 1rem;
-      border: 2px solid var(--turquoise);
-      border-radius: 30px;
-      background: transparent;
-      color: var(--turquoise);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1rem;
+    }
+
+    .page-header {
+      margin-bottom: 3rem;
+    }
+
+    .page-header h1 {
+      font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: #fff;
+    }
+
+    /* ─── BLOG POSTS ─────────────────────────────── */
+    .blog-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .blog-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem 2rem;
       text-decoration: none;
-      transition: all 0.3s ease;
+      display: block;
+      transition: border-color 0.2s, transform 0.2s;
     }
 
-    .btn:hover {
-      background: var(--turquoise);
-      color: #002c3c;
+    .blog-card:hover {
+      border-color: rgba(48, 213, 200, 0.35);
+      transform: translateY(-2px);
     }
 
-    h1, h2 {
-      color: var(--turquoise);
+    .blog-card h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+      transition: color 0.18s;
     }
 
-    a {
-      color: var(--turquoise);
-      text-decoration: none;
+    .blog-card:hover h2 {
+      color: var(--teal);
     }
 
-    .blog-post {
-      margin-bottom: 2rem;
+    .blog-card p {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--text-dim);
     }
 
+    /* ─── FOOTER ─────────────────────────────────── */
     footer {
-      margin-top: 3rem;
-      font-size: 0.85rem;
-      color: #cccccc;
-      text-align: center;
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 2.5rem 2.5rem;
     }
 
-    @media (max-width: 600px) {
-      body {
-        padding: 1.5rem;
-      }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .footer-brand img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 5px;
+      transition: color 0.18s, background 0.18s;
+    }
+
+    .footer-links a:hover {
+      color: var(--teal);
+      background: rgba(48,213,200,0.07);
+    }
+
+    .footer-copy {
+      width: 100%;
+      text-align: center;
+      color: #3d5560;
+      font-size: 0.82rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+
+    /* ─── CONSENT BANNER ─────────────────────────── */
+    #consent-banner {
+      position: fixed;
+      bottom: 1.25rem;
+      right: 1.25rem;
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 1rem 1.25rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      font-size: 0.875rem;
+      max-width: 300px;
+      z-index: 9999;
+      line-height: 1.5;
+    }
+
+    #consent-banner .consent-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    #consent-banner button {
+      background: var(--teal);
+      color: var(--navy);
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    #consent-banner button:hover { background: #45e8db; }
+
+    #consent-banner button.decline {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    #consent-banner button.decline:hover {
+      background: rgba(255,255,255,0.06);
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────── */
+    @media (max-width: 640px) {
+      .navbar { padding: 0 1.25rem; }
+      .nav-links li:not(:last-child) { display: none; }
+      .page-content { padding: 2.5rem 1.25rem 4rem; }
+      footer { padding: 2rem 1.25rem; }
     }
   </style>
 </head>
 <body>
-  <h1>KanActive AI Blog</h1>
 
-  <div class="blog-post">
-    <h2><a href="/blog/blog-kanactive-lite.html">The Hidden Risk in the Prompt Box: Why We Built KanActive AI Lite</a></h2>
-    <p>Generative AI is changing how we work - and how we risk leaking sensitive data. Learn why we created KanActive AI Lite to protect your data at the source.</p>
-  </div>
+  <!-- ─── NAVBAR ───────────────────────────────────────────── -->
+  <nav class="navbar">
+    <a href="/" class="nav-brand">
+      <img src="assets/newlogo.png" alt="KanActive AI Logo" />
+      KanActive AI
+    </a>
 
-  <footer>
-    <div style="margin-bottom: 1rem;">
-      <a href="redact.html" class="btn">Try Free AI Redaction Tool</a>
-      <a href="blog.html" class="btn">Blog</a>
-      <a href="https://instagram.com/kanactiveai" target="_blank" class="btn">Instagram</a>
-      <a href="https://www.threads.net/@kanactiveai" target="_blank" class="btn">Threads</a>
-      <a href="privacy.html" target="_blank" class="btn">Privacy Policy</a>
+    <ul class="nav-links">
+      <li><a href="/#product">Product</a></li>
+      <li><a href="solution.html">Solution</a></li>
+      <li><a href="redact.html">Redact</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="download.html" class="btn-nav">Get KanActive AI Lite</a></li>
+    </ul>
+  </nav>
+
+  <!-- ─── MAIN CONTENT ─────────────────────────────────────── -->
+  <main class="page-content">
+    <div class="page-header">
+      <span class="eyebrow">KanActive AI</span>
+      <h1>Blog</h1>
     </div>
-    &copy; 2025 KanActive AI. All rights reserved.
+
+    <div class="blog-list">
+      <a href="blog/blog-disable-data-collection-chatgpt.html" class="blog-card">
+        <h2>How to Disable Data Collection in ChatGPT</h2>
+        <p>Data collection is enabled by default in ChatGPT. Learn how to turn it off in a few steps — and why it matters for your privacy and security.</p>
+      </a>
+      <a href="blog/blog-kanactive-lite.html" class="blog-card">
+        <h2>The Hidden Risk in the Prompt Box: Why We Built KanActive AI Lite</h2>
+        <p>Generative AI is changing how we work — and how we risk leaking sensitive data. Learn why we created KanActive AI Lite to protect your data at the source.</p>
+      </a>
+    </div>
+  </main>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/newlogo.png" alt="KanActive AI Logo" />
+        KanActive AI
+      </div>
+
+      <ul class="footer-links">
+        <li><a href="redact.html">Free Redaction Tool</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="https://instagram.com/kanactiveai" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.threads.net/@kanactiveai" target="_blank" rel="noopener">Threads</a></li>
+        <li><a href="privacy.html" target="_blank">Privacy Policy</a></li>
+      </ul>
+
+      <p class="footer-copy">&copy; 2026 KanActive AI. All rights reserved.</p>
+    </div>
   </footer>
+
+  <!-- ─── CONSENT BANNER ───────────────────────────────────── -->
   <div id="consent-banner" style="display: none;">
-    This site uses cookies for analytics. <br />
-    <button onclick="acceptConsent()">Accept</button>
-    <button onclick="declineConsent()">Decline</button>
+    This site uses cookies for analytics.
+    <div class="consent-actions">
+      <button onclick="acceptConsent()">Accept</button>
+      <button class="decline" onclick="declineConsent()">Decline</button>
+    </div>
   </div>
 
   <script>
@@ -120,7 +390,6 @@
       document.getElementById('consent-banner').style.display = 'none';
     }
 
-    // Show banner only if user hasn’t made a choice
     if (!localStorage.getItem('consentGiven')) {
       document.getElementById('consent-banner').style.display = 'block';
     } else if (localStorage.getItem('consentGiven') === 'true') {

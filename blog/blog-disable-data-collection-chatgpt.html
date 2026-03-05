@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Hidden Risk in the Prompt Box | KanActive AI</title>
+  <title>How to Disable Data Collection in ChatGPT | KanActive AI</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -173,6 +173,15 @@
       margin-bottom: 0.85rem;
     }
 
+    .prose h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.01em;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
     .prose ul {
       list-style: none;
       display: flex;
@@ -195,6 +204,42 @@
       left: 0;
       color: var(--teal);
       font-weight: 600;
+    }
+
+    .prose ol {
+      list-style: none;
+      counter-reset: ol-counter;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .prose ol li {
+      counter-increment: ol-counter;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      padding-left: 2rem;
+      position: relative;
+    }
+
+    .prose ol li::before {
+      content: counter(ol-counter);
+      position: absolute;
+      left: 0;
+      width: 1.4rem;
+      height: 1.4rem;
+      background: rgba(48, 213, 200, 0.12);
+      border: 1px solid rgba(48, 213, 200, 0.25);
+      border-radius: 50%;
+      color: var(--teal);
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 0.15rem;
     }
 
     .prose blockquote {
@@ -223,6 +268,18 @@
     .prose strong {
       color: var(--text);
       font-weight: 600;
+    }
+
+    .prose em {
+      font-style: italic;
+    }
+
+    .prose code {
+      background: rgba(255,255,255,0.07);
+      padding: 0.1rem 0.35rem;
+      border-radius: 5px;
+      font-size: 0.93em;
+      color: var(--teal);
     }
 
     /* ─── FOOTER ─────────────────────────────────── */
@@ -365,47 +422,43 @@
     <a href="../blog.html" class="back-link">← Back to Blog</a>
 
     <p class="article-eyebrow">KanActive AI</p>
-    <h1 class="article-title">The Hidden Risk in the Prompt Box: Why We Built KanActive AI Lite</h1>
-    <p class="article-meta">By KanActive AI &nbsp;·&nbsp; July 2025</p>
+    <h1 class="article-title">How to Disable Data Collection in ChatGPT</h1>
+    <p class="article-meta">By KanActive AI &nbsp;·&nbsp; August 2025</p>
 
     <div class="prose">
-      <p>Generative AI has revolutionized the way we work — and the way we risk data loss.</p>
-      <p>From summarizing reports to drafting emails and writing code, tools like ChatGPT have become part of the daily workflow for professionals across industries. But as organizations race to adopt AI, data security teams are left scrambling to keep up with the risks these tools introduce.</p>
-      <p>One of the most overlooked — yet serious — risks? Sensitive data accidentally typed into AI tools.</p>
+      <p>When you sign up for ChatGPT, <strong>data collection is enabled by default</strong>. That means your prompts and conversations may be used to train OpenAI's models. While OpenAI says it takes steps to protect your privacy, many people aren't comfortable with their personal or company data being included in AI training.</p>
 
-      <h2>The Quiet Threat: Prompt-Level Data Leaks</h2>
-      <p>Washington State University recently outlined key risks tied to generative AI, including model poisoning, adversarial inputs, and deepfake abuse. But the most immediate and common issue facing organizations today is much simpler:</p>
-      <blockquote>People are putting company secrets directly into free AI tools, like ChatGPT.</blockquote>
-      <p>That could be:</p>
+      <h2>Step-by-Step: Turn It Off</h2>
+      <ol>
+        <li><strong>Visit</strong> <a href="https://chatgpt.com/" target="_blank" rel="noopener">chatgpt.com</a> and sign in.</li>
+        <li>Click the <strong>question mark icon (❓)</strong> in the top-right corner.</li>
+        <li>Click <strong>Settings</strong>.</li>
+        <li>Under <strong>Data Controls</strong>, toggle off <strong>Improve the model for everyone</strong>.</li>
+      </ol>
+
+      <blockquote>
+        <em>"Allow your content to be used to train our models, which makes ChatGPT better for you and everyone who uses it. We take steps to protect your privacy."</em>
+      </blockquote>
+
+      <h2>Why This Matters</h2>
+      <p>Even if you're just experimenting, your chats may include sensitive information — customer details, internal code names, or financial data. Once submitted, you lose control over how it might be stored or processed. Turning off data collection reduces your risk surface and aligns with security best practices.</p>
+
+      <h2>Legal Note from OpenAI</h2>
+      <p>OpenAI's legal section clarifies an important exception:</p>
+      <blockquote>
+        <em>"Even if you've opted out of training, you can still choose to provide feedback to us about your interactions with our products (for instance, by selecting thumbs up or thumbs down on a model response). If you choose to provide feedback, the entire conversation associated with that feedback may be used to train our models."</em>
+      </blockquote>
+      <p><strong>Translation:</strong> if you use the thumbs up/down feedback, the <em>whole conversation</em> tied to that feedback can still be used for training — even if you opted out. Keep that in mind before submitting feedback on a sensitive thread.</p>
+
+      <h2>Take Control of Your Data</h2>
       <ul>
-        <li>Credit card numbers (PCI data)</li>
-        <li>Customer information (PII)</li>
-        <li>Internal project code names</li>
-        <li>Confidential emails or financial statements</li>
+        <li>Disable data collection in ChatGPT as shown above.</li>
+        <li>Avoid pasting sensitive information into AI tools when possible.</li>
+        <li>Use protective controls that run locally (no cloud logging).</li>
       </ul>
 
-      <h2>Why We Built KanActive AI Lite</h2>
-      <p>We created <strong>KanActive AI Lite</strong> to address a narrow but urgent problem: Preventing sensitive PCI data from being sent to ChatGPT.</p>
-      <p>KanActive AI Lite is a free Chrome extension that:</p>
-      <ul>
-        <li>Detects credit card numbers (PCI) in real time</li>
-        <li>Alerts users before the data is submitted</li>
-        <li>Stores everything locally — no servers, no data collection</li>
-        <li>Works seamlessly inside ChatGPT</li>
-      </ul>
-
-      <h2>We Believe in "Secure by Default"</h2>
-      <p>With KanActive AI Lite:</p>
-      <ul>
-        <li>Nothing is stored in the cloud</li>
-        <li>No signup is required</li>
-        <li>The extension only works on ChatGPT (for now)</li>
-        <li>You stay in control of your data</li>
-      </ul>
-      <p>This is a local-first tool built for security-conscious individuals and teams who want to explore AI without putting compliance at risk.</p>
-
-      <h2>What's Next?</h2>
-      <p>We're currently inviting early testers to try the extension before public launch. If you're interested in helping shape the future of KanActive AI, join the waitlist <a href="https://forms.gle/v7dNrE4uvePD1nWKA" target="_blank" rel="noopener">here</a>.</p>
+      <h3>Try KanActive AI Lite</h3>
+      <p><strong>KanActive AI Lite</strong> helps reduce prompt-level risk by detecting PCI data (like credit card numbers) in real time inside ChatGPT and alerting you before submission. It's local-first, with no signup and no server-side logging.</p>
     </div>
   </main>
 
