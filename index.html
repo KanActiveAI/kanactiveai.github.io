@@ -8,6 +8,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Sora:wght@100..800&display=swap" rel="stylesheet" />
   <style>
+    @font-face {
+      font-family: 'Nunito Sans Local';
+      src: url('assets/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf') format('truetype');
+      font-style: normal;
+      font-weight: 200 1000;
+    }
+
+    @font-face {
+      font-family: 'Nunito Sans Local';
+      src: url('assets/NunitoSans-Italic-VariableFont_YTLC,opsz,wdth,wght.ttf') format('truetype');
+      font-style: italic;
+      font-weight: 200 1000;
+    }
+
     :root {
       --teal:      #30d5c8;
       --teal-dim:  rgba(48, 213, 200, 0.18);
@@ -30,7 +44,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Nunito Sans Local', 'Nunito Sans', sans-serif;
       background: var(--navy);
       color: var(--text);
       line-height: 1.5;
@@ -392,6 +406,68 @@
       color: var(--text-dim);
     }
 
+    /* ─── REVIEWS ───────────────────────────────────── */
+    .reviews {
+      background: var(--navy);
+      border-top: 1px solid var(--border);
+      padding: 6rem 2.5rem;
+    }
+
+    .reviews-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 4rem;
+    }
+
+    .review-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .review-stars {
+      display: flex;
+      gap: 0.2rem;
+      color: #f5c518;
+      font-size: 1rem;
+    }
+
+    .review-text {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      flex: 1;
+    }
+
+    .review-author {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .review-author-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .review-source {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+
     /* ─── FOOTER ─────────────────────────────────── */
     footer {
       background: var(--navy);
@@ -513,6 +589,8 @@
 
       .features-grid { grid-template-columns: 1fr; }
 
+      .reviews-grid { grid-template-columns: 1fr; }
+
       .footer-inner { justify-content: center; text-align: center; }
     }
 
@@ -543,7 +621,7 @@
       <li><a href="solution.html">Solution</a></li>
       <li><a href="download.html">Download</a></li>
       <li><a href="blog.html">Blog</a></li>
-      <!-- TODO: replace # with your Chrome Web Store URL -->
+      
       <li><a href="download.html" class="btn-nav">Get KanActive AI Lite</a></li>
     </ul>
   </nav>
@@ -557,8 +635,8 @@
         Protect your team's confidential information before it reaches ChatGPT, Claude, or any AI tool — automatically, right in your browser.
       </p>
       <div class="hero-actions">
-        <!-- TODO: replace # with your Chrome Web Store URL -->
-        <a href="download.html" class="btn-primary">Get KanActive AI Lite</a>
+        
+        <a href="download.html" class="btn-primary">DOWNLOAD EXTENSION - IT'S FREE!</a>
         <a href="redact.html" class="btn-ghost">Try the free redaction tool →</a>
       </div>
     </div>
@@ -613,6 +691,46 @@
           <h3>AI-Ready Protection</h3>
           <p>Designed specifically for prompts to ChatGPT, Claude and other top AI tools. Guard your data at the source.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── REVIEWS ────────────────────────────────────────────── -->
+  <section class="reviews">
+    <div class="reviews-inner">
+      <p class="section-eyebrow">What Users Are Saying</p>
+      <h2 class="section-title">Loved by users who take privacy seriously</h2>
+      <p class="section-sub">Real reviews from the Chrome Web Store.</p>
+
+      <div class="reviews-grid">
+
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">"Easy to use!"</p>
+          <div class="review-author">
+            <span class="review-author-name">Alex M.</span>
+            <span class="review-source">Chrome Web Store</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">"Human Mentality is to cut and paste whatever they want to look for in the browser, not knowing about the consequences of doing it. So this is a great extension to give piece of mind."</p>
+          <div class="review-author">
+            <span class="review-author-name">Chandan S.</span>
+            <span class="review-source">Chrome Web Store</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">"Much needed tool!"</p>
+          <div class="review-author">
+            <span class="review-author-name">Peeyush S.</span>
+            <span class="review-source">Chrome Web Store</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>

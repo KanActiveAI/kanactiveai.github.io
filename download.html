@@ -10,6 +10,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Sora:wght@100..800&display=swap" rel="stylesheet" />
   <style>
+    @font-face {
+      font-family: 'Nunito Sans Local';
+      src: url('assets/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf') format('truetype');
+      font-style: normal;
+      font-weight: 200 1000;
+    }
+
+    @font-face {
+      font-family: 'Nunito Sans Local';
+      src: url('assets/NunitoSans-Italic-VariableFont_YTLC,opsz,wdth,wght.ttf') format('truetype');
+      font-style: italic;
+      font-weight: 200 1000;
+    }
+
     :root {
       --teal:      #30d5c8;
       --teal-dim:  rgba(48, 213, 200, 0.18);
@@ -32,7 +46,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Nunito Sans Local', 'Nunito Sans', sans-serif;
       background: var(--navy);
       color: var(--text);
       line-height: 1.5;
