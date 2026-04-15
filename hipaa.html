@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Blog | KanActive AI</title>
+  <title>HIPAA Guide - KanActive AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Sora:wght@100..800&display=swap" rel="stylesheet" />
@@ -127,14 +127,13 @@
     }
 
     /* ─── PAGE CONTENT ───────────────────────────── */
-    .page-content {
-      max-width: 800px;
+    .article-wrap {
+      max-width: 720px;
       margin: 0 auto;
       padding: 4rem 2.5rem 6rem;
     }
 
-    .eyebrow {
-      display: inline-block;
+    .article-eyebrow {
       font-size: 0.75rem;
       font-weight: 600;
       letter-spacing: 0.12em;
@@ -143,57 +142,78 @@
       margin-bottom: 1rem;
     }
 
-    .page-header {
-      margin-bottom: 3rem;
-    }
-
-    .page-header h1 {
-      font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+    .article-title {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
       font-weight: 800;
-      line-height: 1.1;
+      line-height: 1.12;
       letter-spacing: -0.03em;
       color: #fff;
+      margin-bottom: 1.25rem;
     }
 
-    /* ─── BLOG POSTS ─────────────────────────────── */
-    .blog-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
+    .article-meta {
+      font-size: 0.875rem;
+      color: var(--text-dim);
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
     }
 
-    .blog-card {
-      background: var(--navy-card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.75rem 2rem;
-      text-decoration: none;
-      display: block;
-      transition: border-color 0.2s, transform 0.2s;
+    /* ─── PROSE ──────────────────────────────────── */
+    .prose p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 1.4rem;
     }
 
-    .blog-card:hover {
-      border-color: rgba(48, 213, 200, 0.35);
-      transform: translateY(-2px);
-    }
-
-    .blog-card h2 {
+    .prose h2 {
       font-size: 1.1rem;
       font-weight: 700;
       color: #fff;
       letter-spacing: -0.01em;
-      margin-bottom: 0.5rem;
-      transition: color 0.18s;
+      margin-top: 2.25rem;
+      margin-bottom: 0.75rem;
     }
 
-    .blog-card:hover h2 {
+    .prose ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .prose ul li {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      padding-left: 1.25rem;
+      position: relative;
+    }
+
+    .prose ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
       color: var(--teal);
+      font-weight: 600;
     }
 
-    .blog-card p {
-      font-size: 0.9rem;
-      line-height: 1.65;
-      color: var(--text-dim);
+    .prose a {
+      color: var(--teal);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .prose a:hover {
+      border-color: var(--teal);
+    }
+
+    .prose strong, .prose b {
+      color: var(--text);
+      font-weight: 600;
     }
 
     /* ─── FOOTER ─────────────────────────────────── */
@@ -257,58 +277,11 @@
       border-top: 1px solid rgba(255,255,255,0.04);
     }
 
-    /* ─── CONSENT BANNER ─────────────────────────── */
-    #consent-banner {
-      position: fixed;
-      bottom: 1.25rem;
-      right: 1.25rem;
-      background: var(--navy-mid);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 1rem 1.25rem;
-      border-radius: 10px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
-      font-size: 0.875rem;
-      max-width: 300px;
-      z-index: 9999;
-      line-height: 1.5;
-    }
-
-    #consent-banner .consent-actions {
-      display: flex;
-      gap: 0.5rem;
-      margin-top: 0.75rem;
-    }
-
-    #consent-banner button {
-      background: var(--teal);
-      color: var(--navy);
-      border: none;
-      padding: 0.4rem 1rem;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 0.82rem;
-      cursor: pointer;
-      transition: background 0.15s;
-    }
-
-    #consent-banner button:hover { background: #45e8db; }
-
-    #consent-banner button.decline {
-      background: transparent;
-      color: var(--text-muted);
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-
-    #consent-banner button.decline:hover {
-      background: rgba(255,255,255,0.06);
-    }
-
     /* ─── RESPONSIVE ─────────────────────────────── */
     @media (max-width: 640px) {
       .navbar { padding: 0 1.25rem; }
       .nav-links li:not(:last-child) { display: none; }
-      .page-content { padding: 2.5rem 1.25rem 4rem; }
+      .article-wrap { padding: 2.5rem 1.25rem 4rem; }
       footer { padding: 2rem 1.25rem; }
     }
   </style>
@@ -331,22 +304,31 @@
     </ul>
   </nav>
 
-  <!-- ─── MAIN CONTENT ─────────────────────────────────────── -->
-  <main class="page-content">
-    <div class="page-header">
-      <span class="eyebrow">KanActive AI</span>
-      <h1>Blog</h1>
-    </div>
+  <!-- ─── CONTENT ───────────────────────────────────────────── -->
+  <main class="article-wrap">
+    <p class="article-eyebrow">Compliance</p>
+    <h1 class="article-title">HIPAA &amp; KanActive AI</h1>
+    <p class="article-meta">Last updated: April 15, 2026</p>
 
-    <div class="blog-list">
-      <a href="blog/blog-disable-data-collection-chatgpt.html" class="blog-card">
-        <h2>How to Disable Data Collection in ChatGPT</h2>
-        <p>Data collection is enabled by default in ChatGPT. Learn how to turn it off in a few steps — and why it matters for your privacy and security.</p>
-      </a>
-      <a href="blog/blog-kanactive-lite.html" class="blog-card">
-        <h2>The Hidden Risk in the Prompt Box: Why We Built KanActive AI Lite</h2>
-        <p>Generative AI is changing how we work — and how we risk leaking sensitive data. Learn why we created KanActive AI Lite to protect your data at the source.</p>
-      </a>
+    <div class="prose">
+      <p>KanActive AI Lite is a browser extension that operates entirely on your device. No user content ever leaves your browser or reaches KanActive servers.</p>
+
+      <h2>Our position under HIPAA</h2>
+      <p>KanActive AI does not qualify as a Business Associate under HIPAA. Because all detection and enforcement happens locally within your browser, KanActive AI never transmits, stores, or processes Protected Health Information (PHI) on any external server.</p>
+      <p>KanActive AI falls outside the scope of HIPAA's Business Associate definition because it does not receive or handle PHI on behalf of a Covered Entity. There is no server-side processing, no content storage, and no data transmission of any kind for the free Lite tier.</p>
+
+      <h2>How KanActive AI works</h2>
+      <p>All sensitive data detection — including recognition of PHI patterns such as patient names, diagnosis codes, or insurance information — is performed entirely within the Chrome or Edge extension on your local device. Detection results are never sent to KanActive servers.</p>
+      <p>KanActive AI does not store, transmit, or have access to any content you type or paste into AI tools. The extension reads and acts on data locally, then discards it. Nothing crosses the internet to our infrastructure.</p>
+
+      <h2>No Business Associate Agreement required</h2>
+      <p>Because KanActive AI does not act as a conduit for PHI — and goes further by never transmitting content at all — no Business Associate Agreement (BAA) is required or applicable. KanActive AI LLC does not sign BAAs at this time.</p>
+
+      <h2>Recommendations for healthcare organizations</h2>
+      <p>While KanActive AI's architecture is designed to be privacy-preserving by default, we always recommend that organizations consult with their legal, compliance, or risk management teams before deploying any new tool in a regulated environment. Every organization's compliance posture is different.</p>
+
+      <h2>Questions</h2>
+      <p>If you have questions about our security stance or compliance posture, please reach out at <a href="mailto:privacy@kanactiveai.com">privacy@kanactiveai.com</a>.</p>
     </div>
   </main>
 
@@ -363,56 +345,12 @@
         <li><a href="blog.html">Blog</a></li>
         <li><a href="https://instagram.com/kanactiveai" target="_blank" rel="noopener">Instagram</a></li>
         <li><a href="https://www.threads.net/@kanactiveai" target="_blank" rel="noopener">Threads</a></li>
-        <li><a href="privacy.html" target="_blank">Privacy Policy</a></li>
-        <li><a href="hipaa.html" target="_blank">HIPAA Compliance</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="hipaa.html">HIPAA Compliance</a></li>
       </ul>
 
       <p class="footer-copy">&copy; 2026 KanActive AI. All rights reserved.</p>
     </div>
   </footer>
-
-  <!-- ─── CONSENT BANNER ───────────────────────────────────── -->
-  <div id="consent-banner" style="display: none;">
-    This site uses cookies for analytics.
-    <div class="consent-actions">
-      <button onclick="acceptConsent()">Accept</button>
-      <button class="decline" onclick="declineConsent()">Decline</button>
-    </div>
-  </div>
-
-  <script>
-    function loadGoogleAnalytics() {
-      const gaScript = document.createElement('script');
-      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-6HTRJMY7DB";
-      gaScript.async = true;
-      document.head.appendChild(gaScript);
-
-      const inlineScript = document.createElement('script');
-      inlineScript.innerHTML = `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-6HTRJMY7DB', { 'anonymize_ip': true });
-      `;
-      document.head.appendChild(inlineScript);
-    }
-
-    function acceptConsent() {
-      localStorage.setItem('consentGiven', 'true');
-      loadGoogleAnalytics();
-      document.getElementById('consent-banner').style.display = 'none';
-    }
-
-    function declineConsent() {
-      localStorage.setItem('consentGiven', 'false');
-      document.getElementById('consent-banner').style.display = 'none';
-    }
-
-    if (!localStorage.getItem('consentGiven')) {
-      document.getElementById('consent-banner').style.display = 'block';
-    } else if (localStorage.getItem('consentGiven') === 'true') {
-      loadGoogleAnalytics();
-    }
-  </script>
 </body>
 </html>
