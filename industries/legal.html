@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Legal — KanActive AI</title>
+  <meta name="description" content="KanActive AI Lite prevents attorneys and paralegals from accidentally exposing privileged information to AI tools. Protect attorney-client privilege with a free browser extension." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Sora:wght@100..800&display=swap" rel="stylesheet" />
+  <style>
+    @font-face { font-family: 'Nunito Sans Local'; src: url('../assets/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf') format('truetype'); font-style: normal; font-weight: 200 1000; }
+    @font-face { font-family: 'Nunito Sans Local'; src: url('../assets/NunitoSans-Italic-VariableFont_YTLC,opsz,wdth,wght.ttf') format('truetype'); font-style: italic; font-weight: 200 1000; }
+    :root { --teal: #30d5c8; --teal-dim: rgba(48,213,200,0.18); --navy: #080f1a; --navy-mid: #0d1a26; --navy-card: #0f1d2e; --navy-bar: #1a2d3e; --text: #e8f0f2; --text-muted: #8aa8b0; --text-dim: #7a9aa5; --border: rgba(48,213,200,0.13); }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito Sans Local', 'Nunito Sans', sans-serif; background: var(--navy); color: var(--text); line-height: 1.5; }
+    a { color: inherit; }
+    .navbar { position: sticky; top: 0; z-index: 100; background: var(--navy); border-bottom: 1px solid var(--border); padding: 0 2.5rem; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; color: var(--text); font-family: 'Nunito Sans', sans-serif; font-weight: 700; font-size: 1.5rem; letter-spacing: -0.01em; flex-shrink: 0; }
+    .nav-brand img { width: 30px; height: 30px; object-fit: contain; }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+    .nav-links li a { display: block; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.4rem 0.85rem; border-radius: 6px; transition: color 0.18s, background 0.18s; }
+    .nav-links li a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+    .btn-nav { background: var(--teal) !important; color: var(--navy) !important; font-weight: 700 !important; font-size: 0.875rem !important; padding: 0.5rem 1.2rem !important; border-radius: 7px !important; margin-left: 0.75rem; transition: background 0.18s, transform 0.12s, box-shadow 0.18s !important; box-shadow: 0 2px 12px rgba(48,213,200,0.22); }
+    .btn-nav:hover { background: #45e8db !important; transform: translateY(-1px); box-shadow: 0 4px 18px rgba(48,213,200,0.35) !important; }
+    .page-hero { max-width: 760px; margin: 0 auto; padding: 5rem 2.5rem 4rem; text-align: center; }
+    .eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 1.25rem; }
+    .page-hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: #fff; margin-bottom: 1.25rem; }
+    .page-hero h1 span { color: var(--teal); }
+    .page-hero p { font-size: 1.1rem; line-height: 1.7; color: var(--text-muted); max-width: 580px; margin: 0 auto 2.5rem; }
+    .hero-actions { display: flex; align-items: center; justify-content: center; gap: 1.25rem; flex-wrap: wrap; }
+    .btn-primary { display: inline-block; background: var(--teal); color: var(--navy); padding: 0.875rem 2rem; border-radius: 8px; font-weight: 700; font-size: 0.975rem; text-decoration: none; transition: background 0.18s, transform 0.12s, box-shadow 0.18s; box-shadow: 0 4px 22px rgba(48,213,200,0.28); white-space: nowrap; }
+    .btn-primary:hover { background: #45e8db; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(48,213,200,0.4); }
+    .btn-ghost { display: inline-block; color: var(--teal); font-weight: 600; font-size: 0.95rem; text-decoration: none; padding-bottom: 2px; border-bottom: 1px solid transparent; transition: border-color 0.18s; white-space: nowrap; }
+    .btn-ghost:hover { border-color: var(--teal); }
+    .problem-strip { background: var(--navy-mid); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 4rem 2.5rem; }
+    .problem-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .problem-text .section-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #e55; margin-bottom: 0.85rem; }
+    .problem-text h2 { font-size: clamp(1.6rem, 2.5vw, 2rem); font-weight: 700; color: #fff; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .problem-text p { font-size: 0.95rem; line-height: 1.75; color: var(--text-muted); margin-bottom: 0.85rem; }
+    .risk-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; margin-top: 1.25rem; }
+    .risk-list li { font-size: 0.9rem; color: var(--text-dim); padding-left: 1.5rem; position: relative; line-height: 1.55; }
+    .risk-list li::before { content: '⚠'; position: absolute; left: 0; color: #e88; font-size: 0.8rem; }
+    .stat-stack { display: flex; flex-direction: column; gap: 1rem; }
+    .stat-card { background: var(--navy-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem 1.75rem; }
+    .stat-number { font-size: 2rem; font-weight: 800; color: var(--teal); letter-spacing: -0.03em; line-height: 1; margin-bottom: 0.35rem; }
+    .stat-label { font-size: 0.875rem; color: var(--text-muted); line-height: 1.5; }
+    .scenario-section { padding: 5.5rem 2.5rem; }
+    .scenario-inner { max-width: 1100px; margin: 0 auto; }
+    .section-eyebrow { text-align: center; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.9rem; }
+    .section-title { text-align: center; font-size: clamp(1.75rem, 2.5vw, 2.25rem); font-weight: 700; color: #fff; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+    .section-sub { text-align: center; color: var(--text-muted); font-size: 1rem; margin-bottom: 3rem; }
+    .scenario-card { background: var(--navy-card); border: 1px solid var(--border); border-left: 3px solid rgba(232,136,136,0.5); border-radius: 12px; padding: 2rem 2.5rem; }
+    .scenario-card p { font-size: 0.95rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 1rem; }
+    .scenario-card p:last-child { margin-bottom: 0; }
+    .scenario-card h3 { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #e88; margin-bottom: 0.85rem; margin-top: 1.5rem; }
+    .outcome-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .outcome-list li { font-size: 0.9rem; color: var(--text-dim); padding-left: 1.5rem; position: relative; line-height: 1.55; }
+    .outcome-list li::before { content: '→'; position: absolute; left: 0; color: #e88; font-weight: 600; }
+    .protect-section { background: var(--navy-mid); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 5.5rem 2.5rem; }
+    .protect-inner { max-width: 1100px; margin: 0 auto; }
+    .protect-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .protect-card { background: var(--navy-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; transition: border-color 0.2s, transform 0.2s; }
+    .protect-card:hover { border-color: rgba(48,213,200,0.35); transform: translateY(-2px); }
+    .protect-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+    .protect-card h3 { font-size: 0.925rem; font-weight: 600; color: #fff; margin-bottom: 0.4rem; }
+    .protect-card p { font-size: 0.84rem; line-height: 1.6; color: var(--text-dim); }
+    .how-it-works { padding: 5.5rem 2.5rem; }
+    .how-inner { max-width: 1100px; margin: 0 auto; }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .step-card { background: var(--navy-card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem 1.75rem; display: flex; flex-direction: column; gap: 0.75rem; transition: border-color 0.2s, transform 0.2s; }
+    .step-card:hover { border-color: rgba(48,213,200,0.35); transform: translateY(-3px); }
+    .step-number { width: 2.25rem; height: 2.25rem; border-radius: 50%; background: var(--teal-dim); border: 1px solid rgba(48,213,200,0.3); color: var(--teal); font-weight: 700; font-size: 0.875rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .step-card h3 { font-size: 1rem; font-weight: 600; color: #fff; }
+    .step-card p { font-size: 0.9rem; line-height: 1.65; color: var(--text-dim); }
+    .cta-section { background: var(--navy-mid); border-top: 1px solid var(--border); padding: 5.5rem 2.5rem; }
+    .cta-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+    .cta-inner h2 { font-size: clamp(1.75rem, 2.5vw, 2.25rem); font-weight: 700; color: #fff; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .cta-inner h2 span { color: var(--teal); }
+    .cta-inner p { font-size: 1rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 2.25rem; }
+    .cost-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 2.5rem; text-align: left; }
+    .cost-card { background: var(--navy-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+    .cost-eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.5rem; }
+    .cost-value { font-size: 1.35rem; font-weight: 800; color: #e88; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 0.4rem; }
+    .cost-value.free { color: var(--teal); }
+    .cost-desc { font-size: 0.84rem; color: var(--text-dim); line-height: 1.5; }
+    .cta-badges { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+    .badge { font-size: 0.8rem; font-weight: 500; color: var(--teal); background: rgba(48,213,200,0.1); border: 1px solid rgba(48,213,200,0.2); border-radius: 999px; padding: 0.25rem 0.7rem; }
+    footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.05); padding: 2.5rem 2.5rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.25rem; }
+    .footer-brand { display: flex; align-items: center; gap: 0.6rem; font-weight: 700; font-size: 0.95rem; }
+    .footer-brand img { width: 24px; height: 24px; object-fit: contain; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 0.25rem; list-style: none; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; padding: 0.35rem 0.75rem; border-radius: 5px; transition: color 0.18s, background 0.18s; }
+    .footer-links a:hover { color: var(--teal); background: rgba(48,213,200,0.07); }
+    .footer-copy { width: 100%; text-align: center; color: #3d5560; font-size: 0.82rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.04); }
+    @media (max-width: 1000px) { .protect-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 720px) { .protect-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 900px) { .problem-inner { grid-template-columns: 1fr; gap: 2.5rem; } .steps-grid { grid-template-columns: 1fr; } .steps-grid::before { display: none; } .cost-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .navbar { padding: 0 1.25rem; } .nav-links li:not(:last-child) { display: none; } .page-hero { padding: 3.5rem 1.25rem 3rem; } .problem-strip, .scenario-section, .protect-section, .how-it-works, .cta-section { padding: 4rem 1.25rem; } .protect-grid { grid-template-columns: 1fr; } .scenario-card { padding: 1.5rem; } footer { padding: 2rem 1.25rem; } }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="../" class="nav-brand">
+      <img src="../assets/inverted-logo.png" alt="KanActive AI Logo" />
+      KanActive AI
+    </a>
+    <ul class="nav-links">
+      <li><a href="../#product">Product</a></li>
+      <li><a href="../solution.html">Solution</a></li>
+      <li><a href="index.html">Industries</a></li>
+      <li><a href="../redact.html">Redact</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../download.html" class="btn-nav">Get KanActive AI Lite</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero">
+    <span class="eyebrow">Legal</span>
+    <h1>Protect Attorney-Client Privilege From <span>AI Exposure</span></h1>
+    <p>Attorneys and paralegals handle information protected by privilege, ethics rules, and court orders. One paste of a case file into ChatGPT could waive privilege, trigger bar disciplinary action, and open the firm to malpractice claims.</p>
+    <div class="hero-actions">
+      <a href="../download.html" class="btn-primary">Get KanActive AI Lite — Free</a>
+      <a href="index.html" class="btn-ghost">See all industries →</a>
+    </div>
+  </section>
+
+  <section class="problem-strip">
+    <div class="problem-inner">
+      <div class="problem-text">
+        <p class="section-eyebrow">The Privilege Waiver Cost</p>
+        <h2>Privilege waiver can destroy your case and open the firm to liability</h2>
+        <p>Bar disciplinary action, malpractice lawsuits, and client attrition follow quickly. Sharing privileged information with third parties — including AI vendors — can waive attorney-client privilege under most state bar rules. Most attorneys don't realize consumer AI platforms qualify as a third party.</p>
+        <p>ABA Model Rule 1.6 (confidentiality) explicitly covers this. Most bar associations prohibit using non-approved tools for client data. Yet associates and paralegals use consumer AI tools every day to speed up their work.</p>
+        <ul class="risk-list">
+          <li>Sharing privileged info with AI vendors can waive attorney-client privilege</li>
+          <li>ABA Model Rule 1.6 and most state equivalents explicitly cover AI tools</li>
+          <li>Opposing counsel can use privilege waiver to access all related communications</li>
+          <li>Malpractice exposure from client losses caused by the waiver</li>
+          <li>Case management systems can't follow data once it leaves the office network</li>
+        </ul>
+      </div>
+      <div class="stat-stack">
+        <div class="stat-card">
+          <div class="stat-number">$5M+</div>
+          <div class="stat-label">potential malpractice exposure from a single privilege waiver incident</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">Career risk</div>
+          <div class="stat-label">bar disciplinary complaints can result in suspension, fines, and permanent reputational damage</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">$0</div>
+          <div class="stat-label">cost to protect your team with KanActive AI Lite — free, local, no signup</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="scenario-section">
+    <div class="scenario-inner">
+      <p class="section-eyebrow">Real-World Scenario</p>
+      <h2 class="section-title">The Waived Privilege</h2>
+      <p class="section-sub">A late-night shortcut becomes a case-ending compliance event.</p>
+      <div class="scenario-card">
+        <p>A junior associate is drafting a motion for summary judgment. To organize arguments quickly, they paste key deposition excerpts and attorney work product notes into ChatGPT. The AI processes it instantly. The associate submits the motion.</p>
+        <p>Months later, opposing counsel requests the firm's AI prompt history during discovery. The firm claims privilege — but the damage is done. The privileged information has been shared with a non-privileged third party, and the waiver argument is strong.</p>
+        <h3>What follows</h3>
+        <ul class="outcome-list">
+          <li>Privilege waiver motion filed by opposing counsel</li>
+          <li>Judge potentially grants access to all related communications</li>
+          <li>Client's case substantially weakened or lost</li>
+          <li>Malpractice lawsuit from client for damages caused</li>
+          <li>Bar disciplinary complaint against the associate and potentially the partner</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="protect-section">
+    <div class="protect-inner">
+      <p class="section-eyebrow">What KanActive Detects</p>
+      <h2 class="section-title">Sensitive data protection for legal workflows</h2>
+      <p class="section-sub">KanActive AI Lite detects the structured sensitive data most commonly embedded in legal documents and blocks it before it before it reaches any AI platform.</p>
+      <div class="protect-grid">
+        <div class="protect-card">
+          <div class="protect-icon">🪪</div>
+          <h3>SSN &amp; Government IDs</h3>
+          <p>Catches Social Security numbers in client intake forms, personnel records, and case files — one of the most common PII exposures in legal documents.</p>
+        </div>
+        <div class="protect-card">
+          <div class="protect-icon">📧</div>
+          <h3>Email Addresses</h3>
+          <p>Flags client, witness, and opposing counsel email addresses embedded in correspondence, deposition excerpts, and case documents.</p>
+        </div>
+        <div class="protect-card">
+          <div class="protect-icon">📞</div>
+          <h3>Phone Numbers</h3>
+          <p>Detects client and witness phone numbers in intake records, contact sheets, and case notes pasted into AI tools.</p>
+        </div>
+        <div class="protect-card">
+          <div class="protect-icon">💳</div>
+          <h3>Payment Card Data</h3>
+          <p>Identifies credit card numbers in financial records, restitution documentation, and billing files associated with cases.</p>
+        </div>
+        <div class="protect-card">
+          <div class="protect-icon">🏦</div>
+          <h3>International Bank Numbers</h3>
+          <p>Catches IBANs in cross-border matters, international financial records, and asset documentation embedded in case files.</p>
+        </div>
+        <div class="protect-card">
+          <div class="protect-icon">🏥</div>
+          <h3>Healthcare Provider IDs</h3>
+          <p>Detects NPI numbers in medical malpractice, personal injury, and insurance coverage matters involving provider records.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works">
+    <div class="how-inner">
+      <p class="section-eyebrow">How It Works</p>
+      <h2 class="section-title">Three steps. Zero friction.</h2>
+      <p class="section-sub">KanActive AI Lite runs silently in every browser. No training, no configuration, no IT overhead.</p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Install the extension</h3>
+          <p>Add KanActive AI Lite to Chrome or Edge from the browser store. One click — no account, no email, no onboarding flow.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Work normally</h3>
+          <p>Attorneys and paralegals use ChatGPT, Claude, or Gemini as they normally would. The extension monitors prompt inputs in real-time, invisibly.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Privileged content is blocked before it sends</h3>
+          <p>Detected privileged information is flagged and blocked before submission. The original content never leaves the browser or reaches any AI server.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>The business case is <span>simple</span></h2>
+      <p>One malpractice lawsuit costs more than years of protection. KanActive AI Lite is free — and deploys across a 20-person firm in under 10 minutes.</p>
+      <div class="cost-grid">
+        <div class="cost-card">
+          <div class="cost-eyebrow">Cost of privilege waiver</div>
+          <div class="cost-value">$500K–$5M+</div>
+          <div class="cost-desc">Malpractice lawsuit, case loss, bar complaint, and reputational damage from a single waiver incident</div>
+        </div>
+        <div class="cost-card">
+          <div class="cost-eyebrow">Cost of KanActive Lite</div>
+          <div class="cost-value free">Free</div>
+          <div class="cost-desc">Zero cost. Install once, protect every AI interaction across all devices.</div>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="../download.html" class="btn-primary">Get KanActive AI Lite — Free</a>
+        <a href="../solution.html" class="btn-ghost">See how it works →</a>
+      </div>
+      <div class="cta-badges">
+        <span class="badge">Free forever</span>
+        <span class="badge">Runs locally</span>
+        <span class="badge">No account</span>
+        <span class="badge">Chrome &amp; Edge</span>
+        <span class="badge">No data ever transmitted</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="../assets/inverted-logo.png" alt="KanActive AI Logo" />
+        KanActive AI
+      </div>
+      <ul class="footer-links">
+        <li><a href="../redact.html">Free Redaction Tool</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="https://instagram.com/kanactiveai" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.threads.net/@kanactiveai" target="_blank" rel="noopener">Threads</a></li>
+        <li><a href="../privacy.html">Privacy Policy</a></li>
+        <li><a href="../hipaa.html">HIPAA Compliance</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 KanActive AI. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

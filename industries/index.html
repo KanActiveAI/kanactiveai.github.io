@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Industries — KanActive AI</title>
+  <meta name="description" content="KanActive AI Lite protects sensitive data across healthcare, finance, legal, and professional services from accidental AI exposure. Free browser extension for Chrome and Edge." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Sora:wght@100..800&display=swap" rel="stylesheet" />
+  <style>
+    @font-face { font-family: 'Nunito Sans Local'; src: url('../assets/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf') format('truetype'); font-style: normal; font-weight: 200 1000; }
+    @font-face { font-family: 'Nunito Sans Local'; src: url('../assets/NunitoSans-Italic-VariableFont_YTLC,opsz,wdth,wght.ttf') format('truetype'); font-style: italic; font-weight: 200 1000; }
+    :root { --teal: #30d5c8; --teal-dim: rgba(48,213,200,0.18); --navy: #080f1a; --navy-mid: #0d1a26; --navy-card: #0f1d2e; --navy-bar: #1a2d3e; --text: #e8f0f2; --text-muted: #8aa8b0; --text-dim: #7a9aa5; --border: rgba(48,213,200,0.13); }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito Sans Local', 'Nunito Sans', sans-serif; background: var(--navy); color: var(--text); line-height: 1.5; }
+    a { color: inherit; }
+
+    /* ─── NAVBAR ─────────────────────────────────── */
+    .navbar { position: sticky; top: 0; z-index: 100; background: var(--navy); border-bottom: 1px solid var(--border); padding: 0 2.5rem; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; color: var(--text); font-family: 'Nunito Sans', sans-serif; font-weight: 700; font-size: 1.5rem; letter-spacing: -0.01em; flex-shrink: 0; }
+    .nav-brand img { width: 30px; height: 30px; object-fit: contain; }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+    .nav-links li a { display: block; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.4rem 0.85rem; border-radius: 6px; transition: color 0.18s, background 0.18s; }
+    .nav-links li a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+    .btn-nav { background: var(--teal) !important; color: var(--navy) !important; font-weight: 700 !important; font-size: 0.875rem !important; padding: 0.5rem 1.2rem !important; border-radius: 7px !important; margin-left: 0.75rem; transition: background 0.18s, transform 0.12s, box-shadow 0.18s !important; box-shadow: 0 2px 12px rgba(48,213,200,0.22); }
+    .btn-nav:hover { background: #45e8db !important; transform: translateY(-1px); box-shadow: 0 4px 18px rgba(48,213,200,0.35) !important; }
+
+    /* ─── HERO ───────────────────────────────────── */
+    .page-hero { max-width: 760px; margin: 0 auto; padding: 5rem 2.5rem 4rem; text-align: center; }
+    .eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 1.25rem; }
+    .page-hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: #fff; margin-bottom: 1.25rem; }
+    .page-hero h1 span { color: var(--teal); }
+    .page-hero p { font-size: 1.1rem; line-height: 1.7; color: var(--text-muted); max-width: 580px; margin: 0 auto; }
+
+    /* ─── INDUSTRY GRID ──────────────────────────── */
+    .industries-section { padding: 4rem 2.5rem 6rem; }
+    .industries-inner { max-width: 1100px; margin: 0 auto; }
+    .industry-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .industry-card { display: block; background: var(--navy-card); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; text-decoration: none; color: inherit; transition: border-color 0.2s, transform 0.2s; }
+    .industry-card:hover { border-color: rgba(48,213,200,0.4); transform: translateY(-3px); }
+    .industry-icon { font-size: 2.25rem; margin-bottom: 1.1rem; }
+    .industry-card h2 { font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; letter-spacing: -0.01em; }
+    .industry-tagline { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.85rem; }
+    .industry-card p { font-size: 0.925rem; line-height: 1.65; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .industry-risk { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.75rem; }
+    .industry-risk li { font-size: 0.84rem; color: var(--text-dim); padding-left: 1.25rem; position: relative; line-height: 1.5; }
+    .industry-risk li::before { content: '→'; position: absolute; left: 0; color: var(--teal); font-weight: 600; }
+    .industry-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.875rem; font-weight: 600; color: var(--teal); }
+
+    /* ─── WHY SECTION ────────────────────────────── */
+    .why-section { background: var(--navy-mid); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 5.5rem 2.5rem; }
+    .why-inner { max-width: 1100px; margin: 0 auto; }
+    .section-eyebrow { text-align: center; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.9rem; }
+    .section-title { text-align: center; font-size: clamp(1.75rem, 2.5vw, 2.25rem); font-weight: 700; color: #fff; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+    .section-sub { text-align: center; color: var(--text-muted); font-size: 1rem; margin-bottom: 3.5rem; }
+    .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .pillar-card { background: var(--navy-card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem 1.75rem; }
+    .pillar-icon { font-size: 1.75rem; margin-bottom: 1rem; }
+    .pillar-card h3 { font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: 0.5rem; }
+    .pillar-card p { font-size: 0.9rem; line-height: 1.65; color: var(--text-dim); }
+
+    /* ─── CTA ────────────────────────────────────── */
+    .cta-section { padding: 5.5rem 2.5rem; }
+    .cta-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+    .cta-inner h2 { font-size: clamp(1.75rem, 2.5vw, 2.25rem); font-weight: 700; color: #fff; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .cta-inner h2 span { color: var(--teal); }
+    .cta-inner p { font-size: 1rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 2.25rem; }
+    .hero-actions { display: flex; align-items: center; justify-content: center; gap: 1.25rem; flex-wrap: wrap; }
+    .btn-primary { display: inline-block; background: var(--teal); color: var(--navy); padding: 0.875rem 2rem; border-radius: 8px; font-weight: 700; font-size: 0.975rem; text-decoration: none; transition: background 0.18s, transform 0.12s, box-shadow 0.18s; box-shadow: 0 4px 22px rgba(48,213,200,0.28); white-space: nowrap; }
+    .btn-primary:hover { background: #45e8db; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(48,213,200,0.4); }
+    .btn-ghost { display: inline-block; color: var(--teal); font-weight: 600; font-size: 0.95rem; text-decoration: none; padding-bottom: 2px; border-bottom: 1px solid transparent; transition: border-color 0.18s; white-space: nowrap; }
+    .btn-ghost:hover { border-color: var(--teal); }
+    .cta-badges { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+    .badge { font-size: 0.8rem; font-weight: 500; color: var(--teal); background: rgba(48,213,200,0.1); border: 1px solid rgba(48,213,200,0.2); border-radius: 999px; padding: 0.25rem 0.7rem; }
+
+    /* ─── FOOTER ─────────────────────────────────── */
+    footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.05); padding: 2.5rem 2.5rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.25rem; }
+    .footer-brand { display: flex; align-items: center; gap: 0.6rem; font-weight: 700; font-size: 0.95rem; }
+    .footer-brand img { width: 24px; height: 24px; object-fit: contain; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 0.25rem; list-style: none; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; padding: 0.35rem 0.75rem; border-radius: 5px; transition: color 0.18s, background 0.18s; }
+    .footer-links a:hover { color: var(--teal); background: rgba(48,213,200,0.07); }
+    .footer-copy { width: 100%; text-align: center; color: #3d5560; font-size: 0.82rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.04); }
+
+    /* ─── RESPONSIVE ─────────────────────────────── */
+    @media (max-width: 900px) { .industry-grid { grid-template-columns: 1fr; } .pillars-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .navbar { padding: 0 1.25rem; } .nav-links li:not(:last-child) { display: none; } .page-hero { padding: 3.5rem 1.25rem 3rem; } .industries-section, .why-section, .cta-section { padding: 4rem 1.25rem; } .industry-card { padding: 1.75rem; } footer { padding: 2rem 1.25rem; } }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="../" class="nav-brand">
+      <img src="../assets/inverted-logo.png" alt="KanActive AI Logo" />
+      KanActive AI
+    </a>
+    <ul class="nav-links">
+      <li><a href="../#product">Product</a></li>
+      <li><a href="../solution.html">Solution</a></li>
+      <li><a href="index.html">Industries</a></li>
+      <li><a href="../redact.html">Redact</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../download.html" class="btn-nav">Get KanActive AI Lite</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero">
+    <span class="eyebrow">Industries</span>
+    <h1>Every industry has <span>unique AI risks</span></h1>
+    <p>Employees in every sector use AI tools for everyday work and routinely paste sensitive data without thinking twice. KanActive AI Lite prevents accidental leaks before they become compliance incidents.</p>
+  </section>
+
+  <section class="industries-section">
+    <div class="industries-inner">
+      <div class="industry-grid">
+
+        <a href="healthcare.html" class="industry-card">
+          <div class="industry-icon">🏥</div>
+          <h2>Healthcare</h2>
+          <div class="industry-tagline">HIPAA &amp; PHI Protection</div>
+          <p>Healthcare teams handle the most sensitive data on the internet. One copy-paste into ChatGPT could breach HIPAA compliance, expose your organization to fines, and shatter patient trust.</p>
+          <ul class="industry-risk">
+            <li>$100–$50,000 per HIPAA violation</li>
+            <li>No BAA coverage with consumer AI tools</li>
+            <li>Breach notification required for every affected patient</li>
+          </ul>
+          <span class="industry-link">Healthcare protection →</span>
+        </a>
+
+        <a href="finance.html" class="industry-card">
+          <div class="industry-icon">📊</div>
+          <h2>Finance</h2>
+          <div class="industry-tagline">SEC &amp; Regulation S-P Compliance</div>
+          <p>Financial advisors, analysts, and wealth managers handle sensitive client information requiring absolute confidentiality. One casual paste into AI could violate regulations and destroy client relationships.</p>
+          <ul class="industry-risk">
+            <li>SEC violations can trigger fines up to $5M+ for firms</li>
+            <li>MNPI exposure could cross into securities law</li>
+            <li>Client data persists in vendor logs indefinitely</li>
+          </ul>
+          <span class="industry-link">Finance protection →</span>
+        </a>
+
+        <a href="legal.html" class="industry-card">
+          <div class="industry-icon">⚖️</div>
+          <h2>Legal</h2>
+          <div class="industry-tagline">Attorney-Client Privilege &amp; Ethics Rules</div>
+          <p>Attorneys and paralegals work with information protected by privilege and ethics rules. One upload to ChatGPT could waive privilege, trigger bar disciplinary action, and open the firm to malpractice claims.</p>
+          <ul class="industry-risk">
+            <li>Privilege waiver can destroy your case</li>
+            <li>ABA Model Rule 1.6 explicitly covers AI tools</li>
+            <li>Malpractice exposure of $500K–$5M+ per incident</li>
+          </ul>
+          <span class="industry-link">Legal protection →</span>
+        </a>
+
+        <a href="professional-services.html" class="industry-card">
+          <div class="industry-icon">🤝</div>
+          <h2>Professional Services</h2>
+          <div class="industry-tagline">Client Confidentiality &amp; IP Protection</div>
+          <p>Consultants, architects, accountants, and engineers build their reputation on confidential client work. One shared proposal into an AI tool could leak your intellectual property and breach engagement agreements.</p>
+          <ul class="industry-risk">
+            <li>A single breach can end client relationships</li>
+            <li>Proprietary methodologies become AI training data</li>
+            <li>IP theft permanently erodes competitive advantage</li>
+          </ul>
+          <span class="industry-link">Professional Services protection →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="why-section">
+    <div class="why-inner">
+      <p class="section-eyebrow">Why KanActive</p>
+      <h2 class="section-title">Protection built for how people actually work</h2>
+      <p class="section-sub">Traditional DLP tools weren't built for the AI era. KanActive was.</p>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon">⚡</div>
+          <h3>Zero setup</h3>
+          <p>Install once from the Chrome or Edge browser store. No IT configuration, no vendor onboarding, no training required. Protection starts immediately.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">👁️</div>
+          <h3>Zero friction</h3>
+          <p>Runs silently in the background. Staff use AI tools exactly as they normally would. KanActive only intervenes when sensitive data is detected.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">🔒</div>
+          <h3>Pure protection</h3>
+          <p>All detection happens locally in the browser. No data ever reaches KanActive servers. Nothing crosses the internet to our infrastructure. Ever.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Start protecting your team <span>right now</span></h2>
+      <p>Free, local-only, and no account required. Deploy across your entire organization in minutes - no IT overhead, no exceptions.</p>
+      <div class="hero-actions">
+        <a href="../download.html" class="btn-primary">Get KanActive AI Lite — Free</a>
+        <a href="../solution.html" class="btn-ghost">How it works →</a>
+      </div>
+      <div class="cta-badges">
+        <span class="badge">Free forever</span>
+        <span class="badge">Runs locally</span>
+        <span class="badge">No account</span>
+        <span class="badge">Chrome &amp; Edge</span>
+        <span class="badge">No data ever transmitted</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="../assets/inverted-logo.png" alt="KanActive AI Logo" />
+        KanActive AI
+      </div>
+      <ul class="footer-links">
+        <li><a href="../redact.html">Free Redaction Tool</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="https://instagram.com/kanactiveai" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.threads.net/@kanactiveai" target="_blank" rel="noopener">Threads</a></li>
+        <li><a href="../privacy.html">Privacy Policy</a></li>
+        <li><a href="../hipaa.html">HIPAA Compliance</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 KanActive AI. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
